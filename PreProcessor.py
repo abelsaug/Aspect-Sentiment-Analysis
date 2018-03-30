@@ -164,7 +164,7 @@ if __name__ == '__main__':
     optional.add_argument('-m', '--model', help='training model(Naive Baye\'s)', required=False)  #TODO reqd. model-feature engg.
     optional.add_argument('-s', '--stopwords', help='remove stopwords(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-p', '--stemwords', help='porter-stem words(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-n', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)  # TODO
+    optional.add_argument('-n', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
 
