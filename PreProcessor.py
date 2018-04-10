@@ -6,6 +6,11 @@ import pandas
 import enchant
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from nltk.corpus.reader import wordnet
+from nltk.stem.wordnet import WordNetLemmatizer
+from nltk import word_tokenize, pos_tag
+from collections import defaultdict
+from nltk.parse.stanford import StanfordDependencyParser
 
 
 def split_text(df):
@@ -24,16 +29,19 @@ def split_text(df):
                 sdf.loc[len(sdf.index)] = row_list
             row_list = typo_list[-1].split(',')
             row_list[1] = clean_string(row_list[1])
+            row[cols[2]] = clean_string(row[cols[2]])
             sdf.loc[len(sdf.index)] = row_list + [row[cols[2]], row[cols[3]], row[cols[4]]]
         else:
             row[cols[1]] = clean_string(row[cols[1]])
+            row[cols[2]] = clean_string(row[cols[2]])
             sdf.loc[len(sdf.index)] = [row[c] for c in cols]
+
     return sdf
 
 
 def clean_string(string):
     string = re.sub("\[comma]", ',', string)
-    string = re.sub(r'[^a-zA-Z0-9-\'\.$!?/%, ]', ' ', string)
+    string = re.sub(r'[^a-zA-Z0-9-\'\.$!?%, ]', ' ', string)
     # string = re.sub(r'[()\"\[\]_]', ' ', string)
     string = re.sub(r'\s+', ' ', string)
     return string.strip()
@@ -47,6 +55,8 @@ def remove_punc(pudf):
         punc_row = [row[c] for c in cols]
         punc_row[1] = re.sub(r'([^a-zA-Z0-9$%\' ])', ' ', punc_row[1])
         punc_row[1] = re.sub(r'\s+', ' ', punc_row[1]).strip()
+        punc_row[2] = re.sub(r'([^a-zA-Z0-9$%\' ])', ' ', punc_row[2])
+        punc_row[2] = re.sub(r'\s+', ' ', punc_row[2]).strip()
         punc_df.loc[len(punc_df.index)] = punc_row
     return punc_df
 
@@ -58,6 +68,7 @@ def lower_case(pudf):
     for index, row in pudf.iterrows():
         punc_row = [row[c] for c in cols]
         punc_row[1] = punc_row[1].lower()
+        punc_row[2] = punc_row[2].lower()
         punc_df.loc[len(punc_df.index)] = punc_row
     return punc_df
 
@@ -69,6 +80,7 @@ def auto_correct(adf):
     for index, row in adf.iterrows():
         acdf_row = [row[c] for c in cols]
         acdf_row[1] = get_correct_spelling(row[' text'])
+        acdf_row[2] = get_correct_spelling(row[' aspect_term'])
         acdf.loc[len(acdf.index)] = acdf_row
     return acdf
 
@@ -105,9 +117,10 @@ def get_correct_spelling(string):
     for i in range(len(w_list)):
         if w_list[i].isalpha():
             if check_in_dict(w_list[i]) is False:
-                if len(w_list[i]) >= 2 and w_list[i][0].isupper() and w_list[i][1].islower():
-                    correct_w_list.append(w_list[i])
-                elif tagged_list[i][1] not in ['NNP', 'NNPS']:
+                # if len(w_list[i]) >= 2 and w_list[i][0].isupper() and w_list[i][1].islower():
+                #     print w_list[i]
+                #     correct_w_list.append(w_list[i])
+                if tagged_list[i][1] not in ['NNP', 'NNPS']:
                     if autocorrect.spell(w_list[i]) == w_list[i]:
                         seg_list = segment_str(w_list[i])
                         correct_w_list += map(lambda w: autocorrect.spell(w), seg_list)
@@ -138,20 +151,59 @@ def remove_stop_words(stdf):
     rsw_df = pandas.DataFrame(columns=cols)
     for index, row in stdf.iterrows():
         rsw_row = [row[c] for c in cols]
-        rsw_text = re.sub(r'([^a-zA-Z-\' ])', r' \1', rsw_row[1])
+        rsw_text = re.sub(r'([^a-zA-Z-0-9\' ])', r' \1', rsw_row[1])
         rsw_word_list = rsw_text.split(' ')
+        rsw_aspect_list = rsw_row[2].split(' ')
         filtered_text = []
+        filtered_aspect = []
         for w in rsw_word_list:
             if w.isalpha() is True:
                 if w not in stopwords.words('english'):
                     filtered_text.append(w)
             else:
                 filtered_text.append(w)
+        for a in rsw_aspect_list:
+            if a.isalpha() is True:
+                if a not in stopwords.words('english'):
+                    filtered_aspect.append(a)
+            else:
+                filtered_aspect.append(a)
         join_text = ' '.join(filtered_text)
-        rsw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', join_text)
+        rsw_row[2] = ' '.join(filtered_aspect)
+        rsw_row[1] = re.sub(r' ([^a-zA-Z-0-9\' ])', r'\1', join_text)
 
         rsw_df.loc[len(rsw_df.index)] = rsw_row
     return rsw_df
+
+
+def lemmatize_str(lmdf):
+    print "Lemmatizing words..."
+    cols = list(lmdf)
+    lmw_df = pandas.DataFrame(columns=cols)
+    for index, row in lmdf.iterrows():
+        lmw_row = [row[c] for c in cols]
+        lmw_word_list = word_tokenize(lmw_row[1])
+        lmw_aspect_list = word_tokenize(lmw_row[2])
+        lemmatized_w_list = []
+        lemmatized_a_list = []
+        for w, tag in pos_tag(lmw_word_list):
+            if w.isalpha() is True:
+                lemmatized_w_list.append(lmtzr.lemmatize(w, tag_map[tag[0]]))
+            else:
+                lemmatized_w_list.append(w)
+
+        for a, tag in pos_tag(lmw_aspect_list):
+            if a.isalpha() is True:
+                lemmatized_a_list.append(lmtzr.lemmatize(a, tag_map[tag[0]]))
+            else:
+                lemmatized_a_list.append(a)
+        lemmatized_text = ' '.join(lemmatized_w_list)
+        lemmatized_aspect = ' '.join(lemmatized_a_list)
+
+        lmw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', lemmatized_text)
+        lmw_row[2] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', lemmatized_aspect)
+        lmw_df.loc[len(lmw_df.index)] = lmw_row
+    return lmw_df
 
 
 def stem_words(psdf):
@@ -160,16 +212,25 @@ def stem_words(psdf):
     psw_df = pandas.DataFrame(columns=cols)
     for index, row in psdf.iterrows():
         psw_row = [row[c] for c in cols]
-        psw_text = re.sub(r'([^a-zA-Z-\' ])', r' \1', psw_row[1])
-        psw_word_list = psw_text.split(' ')
-        stemmed_list = []
+        psw_word_list = word_tokenize(psw_row[1])
+        psw_aspect_list = word_tokenize(psw_row[2])
+        stemmed_w_list = []
+        stemmed_a_list = []
+
         for w in psw_word_list:
             if w.isalpha() is True:
-                stemmed_list.append(ps.stem(w))
+                stemmed_w_list.append(ps.stem(w))
             else:
-                stemmed_list.append(w)
-        stemmed_text = ' '.join(stemmed_list)
+                stemmed_w_list.append(w)
+        for a in psw_aspect_list:
+            if a.isalpha() is True:
+                stemmed_a_list.append(ps.stem(a))
+            else:
+                stemmed_a_list.append(w)
+        stemmed_text = ' '.join(stemmed_w_list)
+        stemmed_aspect = ' '.join(stemmed_w_list)
         psw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', stemmed_text)
+        psw_row[2] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', stemmed_aspect)
         psw_df.loc[len(psw_df.index)] = psw_row
     return psw_df
 
@@ -198,6 +259,29 @@ def remove_proper_nouns(pndf):
     return pn_df
 
 
+def extract_aspect_related_words(ardf):
+    print "Extracting aspect related words from text..."
+    cols = list(ardf)
+    cols.append('asp_dep_words')
+    ar_df = pandas.DataFrame(columns=cols)
+    count = 0
+    for index, row in ardf.iterrows():
+        count += 1
+        print count, row['example_id']
+        dep_set = set()
+        result = list(sdp.raw_parse(row[' text']))
+        parse_triples_list = [item for item in result[0].triples()]
+        for governor, dep, dependent in parse_triples_list:
+            if governor[0] in row[' aspect_term'] or dependent[0] in row[' aspect_term']:
+                dep_set.add(governor[0])
+                dep_set.add(dependent[0])
+        ar_row = [row[c] for c in cols[:-1]]
+        ar_row.append(' '.join(list(dep_set)))
+        ar_df.loc[len(ar_df.index)] = ar_row
+        # print
+    return ar_df
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Data Pre-processor')
     optional = parser._action_groups.pop()
@@ -206,14 +290,15 @@ if __name__ == '__main__':
     required.add_argument('-o', '--output', help='path to output processed data file', required=True)
     optional.add_argument('-s', '--stopwords', help='remove stopwords(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-r', '--stemwords', help='porter-stem words(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-m', '--lemmatize', help='lemmatize(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-n', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-p', '--punc', help='remove punctuations(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-l', '--lowercase', help='to lowercase(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-d', '--aspdep', help='extract aspect dependecies(y/n)', choices=['y', 'n'], required=False)
 
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
 
-    ps = PorterStemmer()
     df = pandas.read_csv(args['input'])
     eng_dict = enchant.Dict("en_US")
 
@@ -230,7 +315,15 @@ if __name__ == '__main__':
     # OPTIONALS
     if args['stopwords'] == 'y':
         df = remove_stop_words(df)
+    if args['lemmatize'] == 'y':
+        lmtzr = WordNetLemmatizer()
+        tag_map = defaultdict(lambda: wordnet.NOUN)
+        tag_map['J'] = wordnet.ADJ
+        tag_map['V'] = wordnet.VERB
+        tag_map['R'] = wordnet.ADV
+        df = lemmatize_str(df)
     if args['stemwords'] == 'y':
+        ps = PorterStemmer()
         df = stem_words(df)
     if args['propernouns'] == 'y':
         df = remove_proper_nouns(df)
@@ -238,11 +331,35 @@ if __name__ == '__main__':
         df = remove_punc(df)
     if args['lowercase'] == 'y':
         df = lower_case(df)
+    if args['aspdep'] == 'y':
+        sdp = StanfordDependencyParser(
+            path_to_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0.jar",
+            path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
+        df = extract_aspect_related_words(df)
 
     df.to_csv(args['output'], sep='\t')
 
 
-
+# if __name__ == '__main__1':
+#     # sentence = 'Again, problem, right speaker'
+#     #
+#     sdp = StanfordDependencyParser(
+#         path_to_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0.jar",
+#         path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
+#     #
+#     # result = list(sdp.raw_parse(sentence))
+#     # parse_triples_list = [item for item in result[0].triples()]
+#     # for governor, dep, dependent in parse_triples_list:
+#     #     print governor[0], dependent[0]
+#     # dep_tree = [parse.tree() for parse in result][0]
+#     # print dep_tree
+#     # dep_tree.draw()
+#
+#     df = pandas.read_csv('output.csv', sep='\t')
+#     # for index, row in df.iterrows():
+#     #     if row[' aspect_term'] not in row[' text']:
+#     #         print row[' text'], row[' aspect_term']
+#     df = extract_aspect_related_words(df)
 
 
 
