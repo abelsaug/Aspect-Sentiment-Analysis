@@ -337,7 +337,7 @@ if __name__ == '__main__':
             path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
         df = extract_aspect_related_words(df)
 
-    df.to_csv(args['output'], sep='\t')
+    df.to_csv(args['output'], sep='\t', encoding="utf-8")
 
 
 # if __name__ == '__main__1':
