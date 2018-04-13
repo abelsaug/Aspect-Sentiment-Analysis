@@ -11,6 +11,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from nltk import word_tokenize, pos_tag
 from collections import defaultdict
 from nltk.parse.stanford import StanfordDependencyParser
+from nltk.sentiment.util import mark_negation
 
 
 def split_text(df):
@@ -41,7 +42,7 @@ def split_text(df):
 
 def clean_string(string):
     string = re.sub("\[comma]", ',', string)
-    string = re.sub(r'[^a-zA-Z0-9-\'\.$!?%, ]', ' ', string)
+    string = re.sub(r'[^a-zA-Z0-9\.$!?%, ]', ' ', string)
     # string = re.sub(r'[()\"\[\]_]', ' ', string)
     string = re.sub(r'\s+', ' ', string)
     return string.strip()
@@ -53,24 +54,24 @@ def remove_punc(pudf):
     punc_df = pandas.DataFrame(columns=cols)
     for index, row in pudf.iterrows():
         punc_row = [row[c] for c in cols]
-        punc_row[1] = re.sub(r'([^a-zA-Z0-9$%\' ])', ' ', punc_row[1])
+        punc_row[1] = re.sub(r'([^a-zA-Z0-9$%\'_ ])', ' ', punc_row[1])
         punc_row[1] = re.sub(r'\s+', ' ', punc_row[1]).strip()
-        punc_row[2] = re.sub(r'([^a-zA-Z0-9$%\' ])', ' ', punc_row[2])
+        punc_row[2] = re.sub(r'([^a-zA-Z0-9$%\'_ ])', ' ', punc_row[2])
         punc_row[2] = re.sub(r'\s+', ' ', punc_row[2]).strip()
         punc_df.loc[len(punc_df.index)] = punc_row
     return punc_df
 
 
-def lower_case(pudf):
+def lower_case(lcdf):
     print "Converting to lowercase..."
-    cols = list(pudf)
-    punc_df = pandas.DataFrame(columns=cols)
-    for index, row in pudf.iterrows():
-        punc_row = [row[c] for c in cols]
-        punc_row[1] = punc_row[1].lower()
-        punc_row[2] = punc_row[2].lower()
-        punc_df.loc[len(punc_df.index)] = punc_row
-    return punc_df
+    cols = list(lcdf)
+    lc_df = pandas.DataFrame(columns=cols)
+    for index, row in lcdf.iterrows():
+        lc_row = [row[c] for c in cols]
+        lc_row[1] = lc_row[1].lower()
+        lc_row[2] = lc_row[2].lower()
+        lc_df.loc[len(lc_df.index)] = lc_row
+    return lc_df
 
 
 def auto_correct(adf):
@@ -117,9 +118,6 @@ def get_correct_spelling(string):
     for i in range(len(w_list)):
         if w_list[i].isalpha():
             if check_in_dict(w_list[i]) is False:
-                # if len(w_list[i]) >= 2 and w_list[i][0].isupper() and w_list[i][1].islower():
-                #     print w_list[i]
-                #     correct_w_list.append(w_list[i])
                 if tagged_list[i][1] not in ['NNP', 'NNPS']:
                     if autocorrect.spell(w_list[i]) == w_list[i]:
                         seg_list = segment_str(w_list[i])
@@ -151,26 +149,20 @@ def remove_stop_words(stdf):
     rsw_df = pandas.DataFrame(columns=cols)
     for index, row in stdf.iterrows():
         rsw_row = [row[c] for c in cols]
-        rsw_text = re.sub(r'([^a-zA-Z-0-9\' ])', r' \1', rsw_row[1])
+        rsw_text = re.sub(r'([^a-zA-Z0-9$%-\' ])', r' \1', rsw_row[1])
         rsw_word_list = rsw_text.split(' ')
         rsw_aspect_list = rsw_row[2].split(' ')
         filtered_text = []
         filtered_aspect = []
         for w in rsw_word_list:
-            if w.isalpha() is True:
-                if w not in stopwords.words('english'):
-                    filtered_text.append(w)
-            else:
+            if w not in stopwords.words('english') or w in neg_list:
                 filtered_text.append(w)
         for a in rsw_aspect_list:
-            if a.isalpha() is True:
-                if a not in stopwords.words('english'):
-                    filtered_aspect.append(a)
-            else:
+            if a not in stopwords.words('english') or a in neg_list:
                 filtered_aspect.append(a)
         join_text = ' '.join(filtered_text)
         rsw_row[2] = ' '.join(filtered_aspect)
-        rsw_row[1] = re.sub(r' ([^a-zA-Z-0-9\' ])', r'\1', join_text)
+        rsw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', join_text)
 
         rsw_df.loc[len(rsw_df.index)] = rsw_row
     return rsw_df
@@ -186,22 +178,24 @@ def lemmatize_str(lmdf):
         lmw_aspect_list = word_tokenize(lmw_row[2])
         lemmatized_w_list = []
         lemmatized_a_list = []
+        word_lem_dict = dict()
         for w, tag in pos_tag(lmw_word_list):
+
             if w.isalpha() is True:
                 lemmatized_w_list.append(lmtzr.lemmatize(w, tag_map[tag[0]]))
+                word_lem_dict[w] = lmtzr.lemmatize(w, tag_map[tag[0]])
             else:
                 lemmatized_w_list.append(w)
+                word_lem_dict[w] = w
 
-        for a, tag in pos_tag(lmw_aspect_list):
-            if a.isalpha() is True:
-                lemmatized_a_list.append(lmtzr.lemmatize(a, tag_map[tag[0]]))
-            else:
-                lemmatized_a_list.append(a)
+        for a in lmw_aspect_list:
+            lemmatized_a_list.append(word_lem_dict[a])
+
         lemmatized_text = ' '.join(lemmatized_w_list)
         lemmatized_aspect = ' '.join(lemmatized_a_list)
 
-        lmw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', lemmatized_text)
-        lmw_row[2] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', lemmatized_aspect)
+        lmw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', lemmatized_text)
+        lmw_row[2] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', lemmatized_aspect)
         lmw_df.loc[len(lmw_df.index)] = lmw_row
     return lmw_df
 
@@ -229,10 +223,21 @@ def stem_words(psdf):
                 stemmed_a_list.append(w)
         stemmed_text = ' '.join(stemmed_w_list)
         stemmed_aspect = ' '.join(stemmed_w_list)
-        psw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', stemmed_text)
-        psw_row[2] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', stemmed_aspect)
+        psw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_text)
+        psw_row[2] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_aspect)
         psw_df.loc[len(psw_df.index)] = psw_row
     return psw_df
+
+#
+# def handle_negation(negdf):
+#     cols = list(negdf)
+#     neg_df = pandas.DataFrame(columns=cols)
+#     for index, row in negdf.iterrows():
+#         neg_row = [row[c] for c in cols]
+#         neg_text = ' '.join(mark_negation(word_tokenize(row[' text']), double_neg_flip=True, shallow=False))
+#         neg_row[1] = re.sub(r' ([^a-zA-Z0-9-\' ])', r'\1', neg_text)
+#         neg_df.loc[len(neg_df.index)] = neg_row
+#     return neg_df
 
 
 def remove_proper_nouns(pndf):
@@ -242,7 +247,7 @@ def remove_proper_nouns(pndf):
 
     for index, row in pndf.iterrows():
         pnw_row = [row[c] for c in cols]
-        pnw_text = re.sub(r'([^a-zA-Z-\' ])', r' \1', pnw_row[1])
+        pnw_text = re.sub(r'([^a-zA-Z0-9$%-\' ])', r' \1', pnw_row[1])
         pnw_text = re.sub(r'\s+', ' ', pnw_text).strip()
         pnw_word_list = pnw_text.split(' ')
         tagged_list = nltk.pos_tag(pnw_word_list)
@@ -254,7 +259,7 @@ def remove_proper_nouns(pndf):
             else:
                 rm_pn_list.append(pnw_word_list[i])
         rm_pn_text = ' '.join(rm_pn_list)
-        pnw_row[1] = re.sub(r' ([^a-zA-Z-\' ])', r'\1', rm_pn_text)
+        pnw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', rm_pn_text)
         pn_df.loc[len(pn_df.index)] = pnw_row
     return pn_df
 
@@ -272,7 +277,7 @@ def extract_aspect_related_words(ardf):
         result = list(sdp.raw_parse(row[' text']))
         parse_triples_list = [item for item in result[0].triples()]
         for governor, dep, dependent in parse_triples_list:
-            if governor[0] in row[' aspect_term'] or dependent[0] in row[' aspect_term']:
+            if governor[0] in row[' aspect_term'].split(' ') or dependent[0] in row[' aspect_term'].split(' '):
                 dep_set.add(governor[0])
                 dep_set.add(dependent[0])
         ar_row = [row[c] for c in cols[:-1]]
@@ -288,13 +293,14 @@ if __name__ == '__main__':
     required = parser.add_argument_group('required arguments')
     required.add_argument('-i', '--input', help='path to input training data file', required=True)
     required.add_argument('-o', '--output', help='path to output processed data file', required=True)
-    optional.add_argument('-s', '--stopwords', help='remove stopwords(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-r', '--stemwords', help='porter-stem words(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-m', '--lemmatize', help='lemmatize(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-n', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-p', '--punc', help='remove punctuations(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-l', '--lowercase', help='to lowercase(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-d', '--aspdep', help='extract aspect dependecies(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-sw', '--stopwords', help='remove stopwords(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-ps', '--stemwords', help='porter-stem words(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-lm', '--lemmatize', help='lemmatize(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-pn', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-pu', '--punc', help='remove punctuations(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-lo', '--lowercase', help='to lowercase(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-ad', '--aspdep', help='extract aspect dependencies(y/n)', choices=['y', 'n'], required=False)
+    # optional.add_argument('-ng', '--negation', help='handle negations(y/n)', choices=['y', 'n'], required=False)
 
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
@@ -313,8 +319,7 @@ if __name__ == '__main__':
     df = auto_correct(df)
 
     # OPTIONALS
-    if args['stopwords'] == 'y':
-        df = remove_stop_words(df)
+
     if args['lemmatize'] == 'y':
         lmtzr = WordNetLemmatizer()
         tag_map = defaultdict(lambda: wordnet.NOUN)
@@ -322,9 +327,14 @@ if __name__ == '__main__':
         tag_map['V'] = wordnet.VERB
         tag_map['R'] = wordnet.ADV
         df = lemmatize_str(df)
+    if args['stopwords'] == 'y':
+        neg_list = ["no", "not", "never", "n't"]
+        df = remove_stop_words(df)
     if args['stemwords'] == 'y':
         ps = PorterStemmer()
         df = stem_words(df)
+    # if args['negation'] == 'y':
+    #     df = handle_negation(df)
     if args['propernouns'] == 'y':
         df = remove_proper_nouns(df)
     if args['punc'] == 'y':
