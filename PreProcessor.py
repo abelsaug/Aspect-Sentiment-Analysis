@@ -44,6 +44,8 @@ def clean_string(string):
     string = re.sub("\[comma]", ',', string)
     string = re.sub(r'[^a-zA-Z0-9\.$!?%, ]', ' ', string)
     # string = re.sub(r'[()\"\[\]_]', ' ', string)
+    string = re.sub(r'\.+', '.', string)
+    string = re.sub(r"\.(\w)", r' \1', string)
     string = re.sub(r'\s+', ' ', string)
     return string.strip()
 
