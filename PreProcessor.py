@@ -15,7 +15,7 @@ from nltk.sentiment.util import mark_negation
 
 
 def split_text(df):
-    print "Splitting text for merged rows..."
+    print("Splitting text for merged rows...")
     cols = list(df)
     sdf = pandas.DataFrame(columns=cols)
     for index, row in df.iterrows():
@@ -49,7 +49,7 @@ def clean_string(string):
 
 
 def remove_punc(pudf):
-    print "Removing all punctuations..."
+    print("Removing all punctuations...")
     cols = list(pudf)
     punc_df = pandas.DataFrame(columns=cols)
     for index, row in pudf.iterrows():
@@ -63,7 +63,7 @@ def remove_punc(pudf):
 
 
 def lower_case(lcdf):
-    print "Converting to lowercase..."
+    print("Converting to lowercase...")
     cols = list(lcdf)
     lc_df = pandas.DataFrame(columns=cols)
     for index, row in lcdf.iterrows():
@@ -75,7 +75,7 @@ def lower_case(lcdf):
 
 
 def auto_correct(adf):
-    print "Auto-correcting misspells..."
+    print("Auto-correcting misspells...")
     cols = list(adf)
     acdf = pandas.DataFrame(columns=cols)
     for index, row in adf.iterrows():
@@ -144,7 +144,7 @@ def check_in_dict(wrd):
 
 
 def remove_stop_words(stdf):
-    print "Removing stop words..."
+    print("Removing stop words...")
     cols = list(stdf)
     rsw_df = pandas.DataFrame(columns=cols)
     for index, row in stdf.iterrows():
@@ -169,7 +169,7 @@ def remove_stop_words(stdf):
 
 
 def lemmatize_str(lmdf):
-    print "Lemmatizing words..."
+    print("Lemmatizing words...")
     cols = list(lmdf)
     lmw_df = pandas.DataFrame(columns=cols)
     for index, row in lmdf.iterrows():
@@ -201,7 +201,7 @@ def lemmatize_str(lmdf):
 
 
 def stem_words(psdf):
-    print "Stemming words..."
+    print("Stemming words...")
     cols = list(psdf)
     psw_df = pandas.DataFrame(columns=cols)
     for index, row in psdf.iterrows():
@@ -241,7 +241,7 @@ def stem_words(psdf):
 
 
 def remove_proper_nouns(pndf):
-    print "Removing proper nouns..."
+    print("Removing proper nouns...")
     cols = list(pndf)
     pn_df = pandas.DataFrame(columns=cols)
 
@@ -265,14 +265,14 @@ def remove_proper_nouns(pndf):
 
 
 def extract_aspect_related_words(ardf):
-    print "Extracting aspect related words from text..."
+    print("Extracting aspect related words from text...")
     cols = list(ardf)
     cols.append('asp_dep_words')
     ar_df = pandas.DataFrame(columns=cols)
     count = 0
     for index, row in ardf.iterrows():
         count += 1
-        print count, row['example_id']
+        print(count, row['example_id'])
         dep_set = set()
         result = list(sdp.raw_parse(row[' text']))
         parse_triples_list = [item for item in result[0].triples()]
@@ -343,8 +343,8 @@ if __name__ == '__main__':
         df = lower_case(df)
     if args['aspdep'] == 'y':
         sdp = StanfordDependencyParser(
-            path_to_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0.jar",
-            path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
+            path_to_jar="stanford-nlp-jars/stanford-corenlp-3.9.0.jar",
+            path_to_models_jar="stanford-nlp-jars/stanford-corenlp-3.9.0-models.jar")
         df = extract_aspect_related_words(df)
 
     df.to_csv(args['output'], sep='\t', encoding="utf-8")
