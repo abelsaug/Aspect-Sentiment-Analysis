@@ -222,9 +222,9 @@ def stem_words(psdf):
             if a.isalpha() is True:
                 stemmed_a_list.append(ps.stem(a))
             else:
-                stemmed_a_list.append(w)
+                stemmed_a_list.append(a)
         stemmed_text = ' '.join(stemmed_w_list)
-        stemmed_aspect = ' '.join(stemmed_w_list)
+        stemmed_aspect = ' '.join(stemmed_a_list)
         psw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_text)
         psw_row[2] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_aspect)
         psw_df.loc[len(psw_df.index)] = psw_row
