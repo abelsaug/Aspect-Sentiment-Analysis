@@ -254,7 +254,7 @@ def remove_proper_nouns(pndf):
         rm_pn_list = []
         for i in range(len(pnw_word_list)):
             if pnw_word_list[i].isalpha() is True:
-                if tagged_list[i][1] not in ['NNP', 'NNPS']:
+                if tagged_list[i][1] not in ['NNP', 'NNPS'] or pnw_word_list[i] in row[' aspect_term']:
                     rm_pn_list.append(pnw_word_list[i])
             else:
                 rm_pn_list.append(pnw_word_list[i])
@@ -291,8 +291,7 @@ def validate_data(df):
     for index, row in df.iterrows():
         for c in list(df):
             if row[c] is None or row[c] == "":
-                print "Validation error for example_id=%s" % row['example_id']
-                return False
+                raise ValueError("Validation error for index=%s and example_id=%s at col=%s record=%s" % (index, row['example_id'], c, df.loc[index]))
     return True
 
 
