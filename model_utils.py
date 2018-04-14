@@ -21,14 +21,14 @@ def apply_aspdep_weight(train_df, weight):
 
 
 def extract_aspect_related_words(sdp, ardf):
-    print "Extracting aspect related words from text..."
+    print("Extracting aspect related words from text...")
     cols = list(ardf)
     cols.append('asp_dep_words')
     ar_df = pandas.DataFrame(columns=cols)
     count = 0
     for index, row in ardf.iterrows():
         count += 1
-        print count
+        print(count)
         dep_set = set()
         result = list(sdp.raw_parse(row[' text']))
         parse_triples_list = [item for item in result[0].triples()]
