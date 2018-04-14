@@ -40,8 +40,17 @@ def split_text(df):
     return sdf
 
 
+def replace_emoticons(string):
+
+    repl_str = []
+    for word in string.split():
+         repl_str.append(emoticons.get(word, word))
+    return ' '.join(repl_str)
+
+
 def clean_string(string):
     string = re.sub("\[comma]", ',', string)
+    string = replace_emoticons(string)
     string = re.sub(r'[^a-zA-Z0-9\.$!?%, ]', ' ', string)
     # string = re.sub(r'[()\"\[\]_]', ' ', string)
     string = re.sub(r'\.+', '.', string)
@@ -230,17 +239,6 @@ def stem_words(psdf):
         psw_df.loc[len(psw_df.index)] = psw_row
     return psw_df
 
-#
-# def handle_negation(negdf):
-#     cols = list(negdf)
-#     neg_df = pandas.DataFrame(columns=cols)
-#     for index, row in negdf.iterrows():
-#         neg_row = [row[c] for c in cols]
-#         neg_text = ' '.join(mark_negation(word_tokenize(row[' text']), double_neg_flip=True, shallow=False))
-#         neg_row[1] = re.sub(r' ([^a-zA-Z0-9-\' ])', r'\1', neg_text)
-#         neg_df.loc[len(neg_df.index)] = neg_row
-#     return neg_df
-
 
 def remove_proper_nouns(pndf):
     print "Removing proper nouns..."
@@ -289,6 +287,15 @@ def extract_aspect_related_words(ardf):
     return ar_df
 
 
+def validate_data(df):
+    for index, row in df.iterrows():
+        for c in list(df):
+            if row[c] is None or row[c] == "":
+                print "Validation error for example_id=%s" % row['example_id']
+                return False
+    return True
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Data Pre-processor')
     optional = parser._action_groups.pop()
@@ -302,7 +309,6 @@ if __name__ == '__main__':
     optional.add_argument('-pu', '--punc', help='remove punctuations(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-lo', '--lowercase', help='to lowercase(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-ad', '--aspdep', help='extract aspect dependencies(y/n)', choices=['y', 'n'], required=False)
-    # optional.add_argument('-ng', '--negation', help='handle negations(y/n)', choices=['y', 'n'], required=False)
 
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
@@ -310,6 +316,13 @@ if __name__ == '__main__':
     df = pandas.read_csv(args['input'])
     eng_dict = enchant.Dict("en_US")
 
+    emoticons = {
+        ":-(": "sad", ":(": "sad", ":-|": "sad",
+        ";-(": "sad", ";-<": "sad", "|-{": "sad",
+        ":-)": "happy", ":)": "happy", ":o)": "happy",
+        ":-}": "happy", ";-}": "happy", ":->": "happy",
+        ";-)": "happy"
+    }
     df = split_text(df)
 
     with open("include_dict.txt") as inc_file:
@@ -335,8 +348,6 @@ if __name__ == '__main__':
     if args['stemwords'] == 'y':
         ps = PorterStemmer()
         df = stem_words(df)
-    # if args['negation'] == 'y':
-    #     df = handle_negation(df)
     if args['propernouns'] == 'y':
         df = remove_proper_nouns(df)
     if args['punc'] == 'y':
@@ -349,10 +360,12 @@ if __name__ == '__main__':
             path_to_models_jar="stanford-nlp-jars/stanford-corenlp-3.9.0-models.jar")
         df = extract_aspect_related_words(df)
 
-    df.to_csv(args['output'], sep='\t', encoding="utf-8")
+    if validate_data(df):
+        df.to_csv(args['output'], sep='\t', encoding="utf-8")
 
 
-# if __name__ == '__main__1':
+# if __name__ == '__main__':
+#  print replace_emoticons(":( is good.")
 #     # sentence = 'Again, problem, right speaker'
 #     #
 #     sdp = StanfordDependencyParser(
