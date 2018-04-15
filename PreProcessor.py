@@ -56,6 +56,7 @@ def clean_string(string):
     string = re.sub(r'\.+', '.', string)
     string = re.sub(r"\.(\w)", r' \1', string)
     string = re.sub(r'\s+', ' ', string)
+    string = re.sub(r'\.\s\.', '.', string)
     return string.strip()
 
 
