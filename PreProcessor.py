@@ -277,10 +277,13 @@ def extract_aspect_related_words(ardf):
         dep_set = set()
         result = list(sdp.raw_parse(row[' text']))
         parse_triples_list = [item for item in result[0].triples()]
-        for governor, dep, dependent in parse_triples_list:
-            if governor[0] in row[' aspect_term'].split(' ') or dependent[0] in row[' aspect_term'].split(' '):
-                dep_set.add(governor[0])
-                dep_set.add(dependent[0])
+        if not parse_triples_list:
+            dep_set.add(row[' aspect_term'])
+        else:
+            for governor, dep, dependent in parse_triples_list:
+                if governor[0] in row[' aspect_term'].split(' ') or dependent[0] in row[' aspect_term'].split(' '):
+                    dep_set.add(governor[0])
+                    dep_set.add(dependent[0])
         ar_row = [row[c] for c in cols[:-1]]
         ar_row.append(' '.join(list(dep_set)))
         ar_df.loc[len(ar_df.index)] = ar_row
@@ -313,7 +316,7 @@ if __name__ == '__main__':
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
 
-    df = pandas.read_csv(args['input'])
+    df = pandas.read_csv(args['input'])[1212:1214]
     eng_dict = enchant.Dict("en_US")
 
     emoticons = {
