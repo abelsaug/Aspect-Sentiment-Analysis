@@ -316,7 +316,7 @@ if __name__ == '__main__':
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
 
-    df = pandas.read_csv(args['input'])[1212:1214]
+    df = pandas.read_csv(args['input'])
     eng_dict = enchant.Dict("en_US")
 
     emoticons = {
