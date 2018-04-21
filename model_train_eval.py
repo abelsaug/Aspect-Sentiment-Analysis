@@ -6,27 +6,19 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn import linear_model
-import stacked_generalization
 from sklearn.linear_model import LogisticRegression
-
+# from stacked_generalizer import StackedGeneralizer
 
 import model_utils
 
 
-def train_MultinomialNB():
+def train_MultinomialNB(filePath):
     '''TRAINING'''
-    train_df = pandas.read_csv('preproc_train_1_1.csv', sep='\t')
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
-    train_class_1 = []
-
-    for classes in train_class:
-        if classes !=0:
-            train_class_1.append(1)
-        else:
-            train_class_1.append(0)
-    train_class = np.asarray(train_class_1)
     train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
-    text_clf = MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None).fit(train_data, train_class) # 0.3, 0.6   Accuracy:  0.6977029991497758
+    text_clf = MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None).fit(train_data, train_class) # 0.3, 0.6   Accuracy:  0.721615977725423
     joblib.dump(text_clf, 'Multinomial_nb_neutral_model.pkl')
 
 
@@ -37,20 +29,13 @@ def train_MultinomialNB():
     print(clf_report)
 
         
-def train_BernoulliNB():
+def train_BernoulliNB(filePath):
     '''TRAINING'''
-    train_df = pandas.read_csv('preproc_train_1_1.csv', sep='\t')
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
-    train_class_1 = []
-
-    for classes in train_class:
-        if classes !=0:
-            train_class_1.append(1)
-        else:
-            train_class_1.append(0)
-    train_class = np.asarray(train_class_1)
     train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
-    text_clf = BernoulliNB(alpha=1.2, fit_prior=True, class_prior=None).fit(train_data, train_class) # 1.2 Accuracy:  0.6808777267210551
+    text_clf = BernoulliNB(alpha=1.2, fit_prior=True, class_prior=None).fit(train_data, train_class) # 1.2 Accuracy:  0.7043352512055661
     joblib.dump(text_clf, 'Bernoulli_nb_neutral_model.pkl')
 
 #         '''PERFORMANCE EVALUATION'''
@@ -59,22 +44,15 @@ def train_BernoulliNB():
     print(clf_report)
 
         
-def train_SGD():
+def train_SGD(filePath):
     '''TRAINING'''
-    train_df = pandas.read_csv('preproc_train_1_1.csv', sep='\t')
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
-    train_class_1 = []
-
-    for classes in train_class:
-        if classes !=0:
-            train_class_1.append(1)
-        else:
-            train_class_1.append(0)
-    train_class = np.asarray(train_class_1)
     train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
 
 
-    text_clf = linear_model.SGDClassifier(loss='squared_loss', penalty='l2',alpha=1e-3, random_state=607,max_iter=1000000, tol=1e-2).fit(train_data, train_class)        #Accuracy:  0.7106302368296371 
+    text_clf = linear_model.SGDClassifier(loss='squared_loss', penalty='l2',alpha=1e-3, random_state=607,max_iter=1000000, tol=1e-2).fit(train_data, train_class)        #Accuracy:  0.7484356523037183 
     joblib.dump(text_clf, 'SGD_nb_neutral_model.pkl')
 
 
@@ -85,33 +63,30 @@ def train_SGD():
     print(clf_report)
 
         
-def train_StackedGeneralizer():
-    '''TRAINING'''
+# def train_StackedGeneralizer(filePath):
+#     '''TRAINING'''
     
-    train_df = pandas.read_csv('preproc_train_1_1.csv', sep='\t')
-    train_class = train_df[' class'].as_matrix()
-    train_class_1 = []
+#     train_df = pandas.read_csv(filePath, sep='\t')
+#     train_df = model_utils.oversample_neutral_class(train_df)
+#     train_class = train_df[' class'].as_matrix()
+# #     train_class_1 = []
 
-    for classes in train_class:
-        if classes !=0:
-            train_class_1.append(1)
-        else:
-            train_class_1.append(0)
-    train_class = np.asarray(train_class_1)
-    train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
-    base_models = [BernoulliNB(alpha=1.2, fit_prior=True, class_prior=None), MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None), linear_model.SGDClassifier(loss='squared_loss', penalty='l2',alpha=1e-3, random_state=607,max_iter=1000000, tol=1e-2)]
+# #     train_class = np.asarray(train_class_1)
+#     train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
+#     base_models = [BernoulliNB(alpha=1.2, fit_prior=True, class_prior=None), MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None), linear_model.SGDClassifier(loss='squared_loss', penalty='l2',alpha=1e-3, random_state=607,max_iter=1000000, tol=1e-2)]
 
-    # define blending model
-    blending_model = LogisticRegression()
+#     # define blending model
+#     blending_model = LogisticRegression()
 
-    # initialize multi-stage model
-    sg = StackedGeneralizer(base_models, blending_model, n_folds=10, verbose=True)
-
-    sg.fit(train_data, train_class)
+#     # initialize multi-stage model
+#     sg = StackedGeneralizer(base_models, blending_model, n_folds=10, verbose=True)
+    
+#     sg.fit(train_data, train_class)
 #         '''PERFORMANCE EVALUATION'''
-    accuracy, clf_report = model_utils.get_cv_metrics(sg, train_data, train_class, k_split=10)
-    print("Accuracy: ", accuracy)
-    print(clf_report)
+#     preds = sg.predict(pred_directory='test/*/', X_indices=None)
+#     accuracy, clf_report = model_utils.get_cv_metrics(sg, train_data, train_class, k_split=10)
+#     print("Accuracy: ", accuracy)
+#     print(clf_report)
 
 def hyperparam_tuning_MultinomialNB():    
     '''HYPER-PARAMETER TUNING'''
@@ -147,4 +122,15 @@ def final_testing():
             res_file.write("%r => %s\n" % (str(doc), category))
 
 if __name__ == '__main__':
-    train_StackedGeneralizer()
+#     fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_pn.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_lm_sw.csv','out_data_1/data_1_lm_sw_ps.csv','out_data_1/data_1_lm_sw_ps_pn.csv','out_data_1/data_1_pn.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
+#     fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
+    fileLists = ['out_data_1/data_1_pn.csv', 'out_data_1/data_1_ps.csv', 'out_data_1/data_1_sw.csv']
+    for fileno, filePath in enumerate(fileLists):
+        print("Multinomial NB for file No: ", fileno)
+        train_MultinomialNB(filePath)
+        print("Bernoulli NB for file No: ", fileno)
+        train_BernoulliNB(filePath)
+        print("SGD for file No: ", fileno)
+        train_SGD(filePath)
+#         print("Stacked Generalizer for file No: ", fileno)
+#         train_StackedGeneralizer(filePath)
