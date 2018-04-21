@@ -1,8 +1,19 @@
-autocorrect==0.3.0
 nltk==3.2.5
 numpy==1.14.2
 pandas==0.22.0
-pyenchant==2.0.0
 python-dateutil==2.7.2
 pytz==2018.3
 six==1.11.0
+=======
+nltk==3.2.5
+numpy==1.14.2
+pandas==0.22.0
+python-dateutil==2.7.2
+pytz==2018.3
+scikit-learn==0.19.1
+scipy==1.0.1
+six==1.11.0
+sklearn==0.0
+autocorrect==0.3.0
+pyenchant==2.0.0
+>>>>>>> fd888466fd405b33b8ecd3d8443760bcf8c58ee1

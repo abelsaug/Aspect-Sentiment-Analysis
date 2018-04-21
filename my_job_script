@@ -1,0 +1,2 @@
+echo "Running myapplication.py"
+python MultinomialNB_Model.py

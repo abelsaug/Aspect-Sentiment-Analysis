@@ -1,0 +1,5 @@
+'interface computer features human' => 1
+'web Good every day computing' => 1
+'buttons using mouse command' => -1
+'problem work speaker right' => -1
+'Customer problem DELL Service' => -1

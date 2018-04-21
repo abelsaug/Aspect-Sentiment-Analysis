@@ -1,3 +1,7 @@
 .idea
 *.iml
+<<<<<<< HEAD
 venv/*
+=======
+venv/*
+>>>>>>> fd888466fd405b33b8ecd3d8443760bcf8c58ee1
