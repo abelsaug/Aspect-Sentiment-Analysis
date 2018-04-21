@@ -1,0 +1,6 @@
+#PBS -l nodes=20 -N preproc_data_2
+cd philip/DMTM-Project-2/
+source venv/bin/activate
+python PreProcessor.py -i "project_2_train/data 2_train.csv" -o "out_data_2/data_2_ps.csv" -lm n -sw n -ps y -pn n -lo y -pu y -ad y
+
+
