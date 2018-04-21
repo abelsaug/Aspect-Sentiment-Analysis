@@ -19,8 +19,8 @@ if __name__ == '__main__':
 
         '''PERFORMANCE EVALUATION'''
         accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
-        print "Accuracy: %s" % accuracy
-        print clf_report
+        print("Accuracy: %s" % accuracy)
+        print(clf_report)
 
     '''HYPER-PARAMETER TUNING'''
     tuning_flag = False
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
         gs_clf = GridSearchCV(clf, parameters, n_jobs=-1)
         gs_clf = gs_clf.fit(train_data, train_class)
-        print gs_clf.best_score_
+        print(gs_clf.best_score_)
         for param_name in sorted(parameters.keys()):
             print("%s: %r" % (param_name, gs_clf.best_params_[param_name]))
 
@@ -52,10 +52,10 @@ if __name__ == '__main__':
         docs_test = test_df['asp_dep_words'].as_matrix()
         clf = joblib.load('Multinomial_nb_model.pkl')
         predicted = clf.predict(docs_test)
-        print predicted
+        print(predicted)
         with open('result_1.txt', 'w') as res_file:
             for doc, category in zip(docs_test, predicted):
-                print "%r => %s" % (str(doc), category)
+                print("%r => %s" % (str(doc), category))
                 res_file.write("%r => %s\n" % (str(doc), category))
 
 

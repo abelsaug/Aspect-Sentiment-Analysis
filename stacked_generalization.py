@@ -1,23 +1,13 @@
 import numpy as np
-import joblib
-import glob
-from copy import copy
-
-from sklearn.metrics import f1_score
-from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 from sklearn.base import BaseEstimator, ClassifierMixin
-
-import keras.models as keras_models
-from keras.utils.np_utils import to_categorical
-from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
+from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
+from copy import copy
 
 
 def get_predictions(model, X):
-    if hasattr(model, 'predict_proba'):  # Normal SKLearn classifiers
+    if hasattr(model, 'predict_proba'):
         pred = model.predict_proba(X)
-    elif hasattr(model, '_predict_proba_lr'):  # SVMs
-        pred = model._predict_proba_lr(X)
     else:
         pred = model.predict(X)
 
@@ -27,193 +17,185 @@ def get_predictions(model, X):
     return pred
 
 
-def check_module_exists(modulename):
-    try:
-        __import__(modulename)
-    except ImportError:
-        return False
-    return True
-
-
 class StackedGeneralizer(BaseEstimator, ClassifierMixin):
     """Base class for stacked generalization classifier models
     """
 
-    def __init__(self, blending_models=None, n_folds=10, check_dirs=None, verbose=True):
+    def __init__(self, base_models=None, blending_model=None, n_folds=5, verbose=True):
         """
         Stacked Generalizer Classifier
 
         Trains a series of base models using K-fold cross-validation, then combines
         the predictions of each model into a set of features that are used to train
         a high-level classifier model.
+
         Parameters
         -----------
+        base_models: list of classifier models
+            Each model must have a .fit and .predict_proba/.predict method a'la
+            sklearn
         blending_model: object
             A classifier model used to aggregate the outputs of the trained base
             models. Must have a .fit and .predict_proba/.predict method
         n_folds: int
             The number of K-folds to use in =cross-validated model training
         verbose: boolean
+
+        Example
+        -------
+
+        from sklearn.datasets import load_digits
+        from stacked_generalizer import StackedGeneralizer
+        from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
+        from sklearn.linear_model import LogisticRegression
+        import numpy as np
+
+        logger = Logger('test_stacked_generalizer')
+
+        VERBOSE = True
+        N_FOLDS = 5
+
+        # load data and shuffle observations
+        data = load_digits()
+
+        X = data.data
+        y = data.target
+
+        shuffle_idx = np.random.permutation(y.size)
+
+        X = X[shuffle_idx]
+        y = y[shuffle_idx]
+
+        # hold out 20 percent of data for testing accuracy
+        n_train = round(X.shape[0]*.8)
+
+        # define base models
+        base_models = [RandomForestClassifier(n_estimators=100, n_jobs=-1, criterion='gini'),
+                       RandomForestClassifier(n_estimators=100, n_jobs=-1, criterion='entropy'),
+                       ExtraTreesClassifier(n_estimators=100, n_jobs=-1, criterion='gini')]
+
+        # define blending model
+        blending_model = LogisticRegression()
+
+        # initialize multi-stage model
+        sg = StackedGeneralizer(base_models, blending_model,
+                                n_folds=N_FOLDS, verbose=VERBOSE)
+
+        # fit model
+        sg.fit(X[:n_train],y[:n_train])
+
+        # test accuracy
+        pred = sg.predict(X[n_train:])
+        pred_classes = [np.argmax(p) for p in pred]
+
+        _ = sg.evaluate(y[n_train:], pred_classes)
+
+                     precision    recall  f1-score   support
+
+                  0       0.97      1.00      0.99        33
+                  1       0.97      1.00      0.99        38
+                  2       1.00      1.00      1.00        42
+                  3       1.00      0.98      0.99        41
+                  4       0.97      0.94      0.95        32
+                  5       0.95      0.98      0.96        41
+                  6       1.00      0.95      0.97        37
+                  7       0.94      0.97      0.96        34
+                  8       0.94      0.94      0.94        34
+                  9       0.96      0.96      0.96        27
+
+        avg / total       0.97      0.97      0.97       359
         """
-        self.blending_models = blending_models
+        self.base_models = base_models
+        self.blending_model = blending_model
         self.n_folds = n_folds
-        self.check_dirs = check_dirs
         self.verbose = verbose
+        self.base_models_cv = None
 
-    def fit(self, X_indices, y):
-        X_blend = self._fitTransformBaseModels()
+    def fit_base_models(self, X, y):
+        if self.verbose:
+            print('Fitting Base Models...')
 
-        if X_indices is not None:
-            self._fitBlendingModel(X_blend[X_indices], y)
-        else:
-            self._fitBlendingModel(X_blend, y)
+        # kf = list(KFold(y.shape[0], self.n_folds))
+        skf = StratifiedKFold(self.n_folds, shuffle=True, random_state=1000)
 
+        self.base_models_cv = {}
 
-    def predict(self, pred_directory, X_indices=None):
-        # perform model averaging to get predictions
-        predictions_dir = pred_directory if pred_directory is not None else 'models/*/'
+        for i, model in enumerate(self.base_models):
 
-        X_blend = self.transformBaseModels(predictions_dir)
-
-        if X_indices is not None:
-            predictions = self._transformBlendingModel(X_blend[X_indices])
-        else:
-            predictions = self._transformBlendingModel(X_blend)
-
-        pred_classes = np.argmax(predictions, axis=1)
-        return pred_classes
-
-    def predict_proba(self, pred_directory, X_indices=None):
-        # perform model averaging to get predictions
-        predictions_dir = pred_directory if pred_directory is not None else 'models/*/'
-
-        X_blend = self.transformBaseModels(predictions_dir)
-
-        if X_indices is not None:
-            predictions = self._transformBlendingModel(X_blend[X_indices])
-        else:
-            predictions = self._transformBlendingModel(X_blend)
-
-        return predictions
-
-    def transformBaseModels(self, pred_dir='models/*/'):
-        # predict via model averaging
-        predictions = []
-
-        base_path = pred_dir
-        path = base_path + "*.npy"
-
-        files = glob.glob(path)
-        for file in files:
-            if self.check_dirs is not None:
-                for name in self.check_dirs:
-                    if name[:-1] in file:
-                        if self.verbose: print('Loading numpy file %s' % (file))
-
-                        cv_predictions = np.load(file)
-
-                        if 'voting' not in file:
-                            predictions.append(cv_predictions.mean(axis=0))   # take mean on all cv predictions of that model
-                        else:
-                            predictions.append(cv_predictions)
-
-                        break
-
-                continue
-            else:
-                if self.verbose: print('Loading numpy file %s' % (file))
-
-                cv_predictions = np.load(file)
-
-                print('Added file %s' % file)
-
-                if 'voting' not in file:
-                    predictions.append(cv_predictions.mean(axis=0))  # take mean on all cv predictions of that model
-                else:
-                    predictions.append(cv_predictions)
-
-        # concat all features
-        predictions = np.hstack(predictions)
-        if self.verbose: print('Loaded predictions. Shape : ', predictions.shape)
-        return predictions
-
-    def _fitTransformBaseModels(self):
-        return self.transformBaseModels()
-
-    def _fitBlendingModel(self, X_blend, y):
-        self.blending_model_cv = []
-
-        for model_id, blend_model in enumerate(self.blending_models):
+            model_name = "model %02d: %s" % (i + 1, model.__repr__())
             if self.verbose:
-                model_name = "%s" % blend_model.__repr__()
-                print('Fitting Blending Model:\n%s' % model_name)
+                print('Fitting %s' % model_name)
 
-            scores = []
-            skf = StratifiedKFold(self.n_folds, shuffle=True, random_state=1000)
-
-            for j, (train_idx, test_idx) in enumerate(skf.split(X_blend, y)):
+            # run stratified CV for each model
+            self.base_models_cv[model_name] = []
+            for j, (train_idx, test_idx) in enumerate(skf.split(X, y)):
                 if self.verbose:
                     print('Fold %d' % (j + 1))
 
-                X_train, y_train = X_blend[train_idx], y[train_idx]
-                X_test, y_test = X_blend[test_idx], y[test_idx]
+                X_train = X[train_idx]
+                y_train = y[train_idx]
 
-                if isinstance(blend_model, keras_models.Model) or isinstance(blend_model, keras_models.Sequential):
-                    model = blend_model
-
-                    model_path = 'stack_model/keras_model_%d_cv_%d' % (model_id + 1, j + 1) + '.h5'
-                    checkpoint = ModelCheckpoint(model_path,
-                                                 monitor='val_fbeta_score', verbose=1,
-                                                 save_best_only=True, save_weights_only=True,
-                                                 mode='max')
-
-                    reduce_lr = ReduceLROnPlateau(monitor='val_fbeta_score', patience=5, mode='max',
-                                                  factor=0.8, cooldown=5, min_lr=1e-6, verbose=2)
-
-                    y_train_categorical = to_categorical(y_train, 3)
-                    y_test_categorical = to_categorical(y_test, 3)
-
-                    model.fit(X_train, y_train_categorical, batch_size=128, nb_epoch=50,
-                              callbacks=[checkpoint, reduce_lr],
-                              validation_data=(X_test, y_test_categorical))
-
-                    model.load_weights(model_path)
-
-                    preds = model.predict(X_test, batch_size=128)
-                    preds = np.argmax(preds, axis=1)
-
-                    score = f1_score(y_test, preds, average='micro')
-                    scores.append(score)
-                    print('Keras Model %d - CV %d Score : %0.3f' % (model_id + 1, j + 1, score))
-
-                else:
-                    model = copy(blend_model)
-
-                    model_path = 'stack_model/sklearn_model_%d_cv_%d' % (model_id + 1, j + 1) + '.pkl'
-                    model.fit(X_train, y_train)
-
-                    preds = get_predictions(model, X_test)
-                    preds = np.argmax(preds, axis=1)
-
-                    score = f1_score(y_test, preds, average='micro')
-                    scores.append(score)
-                    print('SKLearn Model %d - CV %d Score : %0.3f' % (model_id + 1, j + 1, score))
-
-                    joblib.dump(model, model_path)
+                model.fit(X_train, y_train)
 
                 # add trained model to list of CV'd models
-                self.blending_model_cv.append(model)
+                self.base_models_cv[model_name].append(copy(model))
 
-            print('Average F1 score of model : ', sum(scores) / len(scores))
+    def transform_base_models(self, X):
+        # predict via model averaging
+        predictions = []
+        for key in sorted(self.base_models_cv.keys()):
+            cv_predictions = None
+            n_models = len(self.base_models_cv[key])
+            for i, model in enumerate(self.base_models_cv[key]):
+                model_predictions = get_predictions(model, X)
 
-    def _transformBlendingModel(self, X_blend):
+                if cv_predictions is None:
+                    cv_predictions = np.zeros((n_models, X.shape[0], model_predictions.shape[1]))
+
+                cv_predictions[i, :, :] = model_predictions
+
+            # perform model averaging and add to features
+            predictions.append(cv_predictions.mean(0))
+
+        # concat all features
+        predictions = np.hstack(predictions)
+        return predictions
+
+    def fit_transform_base_models(self, X, y):
+        self.fit_base_models(X, y)
+        return self.transform_base_models(X)
+
+    def fit_blending_model(self, X_blend, y):
+        if self.verbose:
+            model_name = "%s" % self.blending_model.__repr__()
+            print('Fitting Blending Model:\n%s' % model_name)
+
+        # kf = list(KFold(y.shape[0], self.n_folds))
+        skf = StratifiedKFold(self.n_folds, shuffle=True, random_state=1000)
+        # run  CV
+        self.blending_model_cv = []
+
+        for j, (train_idx, test_idx) in enumerate(skf.split(X_blend, y)):
+            if self.verbose:
+                print('Fold %d' % j)
+
+            X_train = X_blend[train_idx]
+            y_train = y[train_idx]
+
+            model = copy(self.blending_model)
+
+            model.fit(X_train, y_train)
+
+            # add trained model to list of CV'd models
+            self.blending_model_cv.append(model)
+
+    def transform_blending_model(self, X_blend):
+
         # make predictions from averaged models
+        predictions = []
         cv_predictions = None
         n_models = len(self.blending_model_cv)
-
         for i, model in enumerate(self.blending_model_cv):
-            if self.verbose: print('Getting predictions from blending model %s (Classifier id %d)' %
-                                   (model.__class__.__name__, i + 1))
             cv_predictions = None
             model_predictions = get_predictions(model, X_blend)
 
@@ -226,9 +208,19 @@ class StackedGeneralizer(BaseEstimator, ClassifierMixin):
         predictions = cv_predictions.mean(0)
         return predictions
 
+    def predict(self, X):
+        # perform model averaging to get predictions
+        X_blend = self.transform_base_models(X)
+        predictions = self.transform_blending_model(X_blend)
+        predictions_mle = [np.argmax(predictions[i]) - 1 for i in range(len(predictions))]
+        return predictions_mle
 
-if __name__ == '__main__':
-    model = StackedGeneralizer()
+    def fit(self, X, y):
+        X_blend = self.fit_transform_base_models(X, y)
+        self.fit_blending_model(X_blend, y)
 
-    X_blend = model.transformBaseModels()
-    print(X_blend.shape)
+    def evaluate(self, y, y_pred):
+        print(classification_report(y, y_pred))
+        print('Confusion Matrix:')
+        print(confusion_matrix(y, y_pred))
+        return accuracy_score(y, y_pred)
