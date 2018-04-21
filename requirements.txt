@@ -7,3 +7,5 @@ scikit-learn==0.19.1
 scipy==1.0.1
 six==1.11.0
 sklearn==0.0
+autocorrect==0.3.0
+pyenchant==2.0.0
