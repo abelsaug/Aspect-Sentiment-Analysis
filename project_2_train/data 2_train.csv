@@ -3259,7 +3259,7 @@ example_id, text, aspect_term, term_location, class
 1528_0,I'm happy to have Nosh in the neighborhood and the food is very comforting.,food,51--55,1
 1162_0,Good atmosphere[comma] combination of all the hottest music dress code is relatively strict except on Fridays.,atmosphere,5--15,1
 1162_1,Good atmosphere[comma] combination of all the hottest music dress code is relatively strict except on Fridays.,music,48--53,1
-1162_2,Good atmosphere[comma] combination of all the hottest music dress code is relatively strict except on Fridays.,dress cod,54--63,-1
+1162_2,Good atmosphere[comma] combination of all the hottest music dress code is relatively strict except on Fridays.,dress code,54--63,-1
 2796_0,love the food.,food,9--13,1
 3634_0,I would highly recommend Nina's to anyone who wants to have a romantic dinner in a heart warming surrounding filled with candles and family pictures.,candles,121--128,1
 3634_1,I would highly recommend Nina's to anyone who wants to have a romantic dinner in a heart warming surrounding filled with candles and family pictures.,dinner,71--77,1
@@ -3523,7 +3523,7 @@ example_id, text, aspect_term, term_location, class
 562_2,Our tiny table for two (dinner plates hung over edge) was right in the middle of one of the lanes of waiter traffic.,dinner plates,24--37,-1
 3272_0,Sake collection was excellent (Try Nanbu Bijin)[comma] but pricy.,Nanbu Bijin,35--46,1
 971_0,Interesting other dishes for a change include chicken in curry sauce and salmon caserole.,dishes,18--24,1
-971_1,Interesting other dishes for a change include chicken in curry sauce and salmon caserole.,chicken in curry sauc,46--67,1
+971_1,Interesting other dishes for a change include chicken in curry sauce and salmon caserole.,chicken in curry sauce,46--67,1
 971_2,Interesting other dishes for a change include chicken in curry sauce and salmon caserole.,salmon caserole,73--88,1
 802_0,One of my favorites though was the Angry Lobster[comma] a cold lobster salad that was magnificent.,Angry Lobster,35--48,1
 802_1,One of my favorites though was the Angry Lobster[comma] a cold lobster salad that was magnificent.,cold lobster salad,52--70,1
