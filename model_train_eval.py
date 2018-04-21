@@ -135,7 +135,7 @@ def final_testing():
     sdp = StanfordDependencyParser(
         path_to_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0.jar",
         path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
-    test_df = pandas.read_csv('test_1_1.csv', sep='\t')
+    test_df = pandas.read_csv('test_1.csv', sep='\t')
     test_df = model_utils.extract_aspect_related_words(sdp, test_df[:5])
     docs_test = test_df['asp_dep_words'].as_matrix()
     clf = joblib.load('Multinomial_nb_model.pkl')
