@@ -11,7 +11,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from nltk import word_tokenize, pos_tag
 from collections import defaultdict
 from nltk.parse.stanford import StanfordDependencyParser
-from nltk.sentiment.util import mark_negation
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 def split_text(df):
@@ -41,10 +41,9 @@ def split_text(df):
 
 
 def replace_emoticons(string):
-
     repl_str = []
     for word in string.split():
-         repl_str.append(emoticons.get(word, word))
+        repl_str.append(emoticons.get(word, word))
     return ' '.join(repl_str)
 
 
@@ -70,6 +69,9 @@ def remove_punc(pudf):
         punc_row[1] = re.sub(r'\s+', ' ', punc_row[1]).strip()
         punc_row[2] = re.sub(r'([^a-zA-Z0-9$%\'_ ])', ' ', punc_row[2])
         punc_row[2] = re.sub(r'\s+', ' ', punc_row[2]).strip()
+        if args['aspdep'] == 'y':
+            punc_row[5] = re.sub(r'([^a-zA-Z0-9$%\'_ ])', ' ', punc_row[5])
+            punc_row[5] = re.sub(r'\s+', ' ', punc_row[5]).strip()
         punc_df.loc[len(punc_df.index)] = punc_row
     return punc_df
 
@@ -82,6 +84,8 @@ def lower_case(lcdf):
         lc_row = [row[c] for c in cols]
         lc_row[1] = lc_row[1].lower()
         lc_row[2] = lc_row[2].lower()
+        if args['aspdep'] == 'y':
+            lc_row[5] = lc_row[5].lower()
         lc_df.loc[len(lc_df.index)] = lc_row
     return lc_df
 
@@ -233,6 +237,17 @@ def stem_words(psdf):
                 stemmed_a_list.append(ps.stem(a))
             else:
                 stemmed_a_list.append(a)
+        if args['aspdep'] == 'y':
+            stemmed_ad_list = []
+            psw_aspdep_list = word_tokenize(psw_row[5])
+            for ad in psw_aspdep_list:
+                if ad.isalpha() is True:
+                    stemmed_ad_list.append(ps.stem(ad))
+                else:
+                    stemmed_ad_list.append(ad)
+            stemmed_aspdep = ' '.join(stemmed_ad_list)
+            psw_row[5] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_aspdep)
+
         stemmed_text = ' '.join(stemmed_w_list)
         stemmed_aspect = ' '.join(stemmed_a_list)
         psw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', stemmed_text)
@@ -253,16 +268,40 @@ def remove_proper_nouns(pndf):
         pnw_word_list = pnw_text.split(' ')
         tagged_list = nltk.pos_tag(pnw_word_list)
         rm_pn_list = []
+        rm_pnad_list = []
         for i in range(len(pnw_word_list)):
             if pnw_word_list[i].isalpha() is True:
                 if tagged_list[i][1] not in ['NNP', 'NNPS'] or pnw_word_list[i] in row[' aspect_term']:
                     rm_pn_list.append(pnw_word_list[i])
+                    if args['aspdep'] == 'y':
+                        if pnw_word_list[i] in row['asp_dep_words']:
+                            rm_pnad_list.append(pnw_word_list[i])
+
             else:
                 rm_pn_list.append(pnw_word_list[i])
+                if args['aspdep'] == 'y':
+                    if pnw_word_list[i] in row['asp_dep_words']:
+                        rm_pnad_list.append(pnw_word_list[i])
+
         rm_pn_text = ' '.join(rm_pn_list)
         pnw_row[1] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', rm_pn_text)
+        if args['aspdep'] == 'y':
+            rm_pnad_text = ' '.join(rm_pnad_list)
+            pnw_row[5] = re.sub(r' ([^a-zA-Z0-9$%-\' ])', r'\1', rm_pnad_text)
         pn_df.loc[len(pn_df.index)] = pnw_row
     return pn_df
+
+
+def asp_dep_set_to_list(text, dp_set):
+    ad_text = re.sub(r'([^a-zA-Z0-9$%-\' ])', r' \1', text)
+    ad_text = re.sub(r'\s+', ' ', ad_text).strip()
+    ad_word_list = ad_text.split(' ')
+    ad_list = []
+    for i in range(len(ad_word_list)):
+        if ad_word_list[i] in dp_set:
+            ad_list.append(ad_word_list[i])
+
+    return ad_list
 
 
 def extract_aspect_related_words(ardf):
@@ -284,18 +323,48 @@ def extract_aspect_related_words(ardf):
                 if governor[0] in row[' aspect_term'].split(' ') or dependent[0] in row[' aspect_term'].split(' '):
                     dep_set.add(governor[0])
                     dep_set.add(dependent[0])
+            for governor, dep, dependent in parse_triples_list:
+                if (governor[0] in dep_set and governor[0] not in row[' aspect_term']) or (
+                        dependent[0] in dep_set and dependent[0] not in row[' aspect_term']):
+                    if governor[1] == 'JJ' or dependent[1] == 'JJ':
+                        dep_set.add(governor[0])
+                        dep_set.add(dependent[0])
+
+        ad_list = asp_dep_set_to_list(row[' text'], dep_set)
         ar_row = [row[c] for c in cols[:-1]]
-        ar_row.append(' '.join(list(dep_set)))
+        ar_row.append(' '.join(ad_list))
         ar_df.loc[len(ar_df.index)] = ar_row
-        # print
     return ar_df
+
+
+def generate_opinion_polarity_feature(opdf):
+    print "Generating opinion polarity feature..."
+    cols = list(opdf)
+    cols.append('opin_polarity')
+    op_df = pandas.DataFrame(columns=cols)
+    for index, row in opdf.iterrows():
+        snt = analyser.polarity_scores(row['asp_dep_words'])
+        # del snt['compound']
+        # snt_polarity = max(snt, key=snt.get)
+        # f_pol = filter(lambda (i, pol): pol == snt_polarity, enumerate(polarity))[0]
+        # opin_polarity = f_pol[0] - 1
+        opin_polarity = 1.0
+        if snt['compound'] == 0.0:
+            opin_polarity = 0.0
+        elif snt['compound'] < 0.0:
+            opin_polarity = -1.0
+        op_row = [row[c] for c in cols[:-1]]
+        op_row.append(opin_polarity)
+        op_df.loc[len(op_df.index)] = op_row
+    return op_df
 
 
 def validate_data(df):
     for index, row in df.iterrows():
         for c in list(df):
             if row[c] is None or row[c] == "":
-                raise ValueError("Validation error for index=%s and example_id=%s at col=%s record=%s" % (index, row['example_id'], c, df.loc[index]))
+                raise ValueError("Validation error for index=%s and example_id=%s at col=%s record=%s" % (
+                    index, row['example_id'], c, df.loc[index]))
     return True
 
 
@@ -311,7 +380,10 @@ if __name__ == '__main__':
     optional.add_argument('-pn', '--propernouns', help='remove propernouns(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-pu', '--punc', help='remove punctuations(y/n)', choices=['y', 'n'], required=False)
     optional.add_argument('-lo', '--lowercase', help='to lowercase(y/n)', choices=['y', 'n'], required=False)
-    optional.add_argument('-ad', '--aspdep', help='extract aspect dependencies(y/n)', choices=['y', 'n'], required=False)
+    optional.add_argument('-ad', '--aspdep', help='extract aspect dependencies(y/n)', choices=['y', 'n'],
+                          required=False)
+    optional.add_argument('-op', '--opinpol', help='generate opinion polarity feature(y/n)', choices=['y', 'n'],
+                          required=False)
 
     parser._action_groups.append(optional)
     args = vars(parser.parse_args())
@@ -348,6 +420,18 @@ if __name__ == '__main__':
     if args['stopwords'] == 'y':
         neg_list = ["no", "not", "never", "n't"]
         df = remove_stop_words(df)
+    if args['aspdep'] == 'y':
+        sdp = StanfordDependencyParser(
+            path_to_jar="stanford-nlp-jars/stanford-corenlp-3.9.0.jar",
+            path_to_models_jar="stanford-nlp-jars/stanford-corenlp-3.9.0-models.jar")
+        df = extract_aspect_related_words(df)
+    if args['opinpol'] == 'y':
+        if args['aspdep'] == 'y':
+            polarity = ['neg', 'neu', 'pos']
+            analyser = SentimentIntensityAnalyzer()
+            df = generate_opinion_polarity_feature(df)
+        else:
+            raise ValueError("set aspdep=y to generate lexicon feature!")
     if args['stemwords'] == 'y':
         ps = PorterStemmer()
         df = stem_words(df)
@@ -357,37 +441,12 @@ if __name__ == '__main__':
         df = remove_punc(df)
     if args['lowercase'] == 'y':
         df = lower_case(df)
-    if args['aspdep'] == 'y':
-        sdp = StanfordDependencyParser(
-            path_to_jar="stanford-nlp-jars/stanford-corenlp-3.9.0.jar",
-            path_to_models_jar="stanford-nlp-jars/stanford-corenlp-3.9.0-models.jar")
-        df = extract_aspect_related_words(df)
 
     if validate_data(df):
         df.to_csv(args['output'], sep='\t', encoding="utf-8")
 
-
-# if __name__ == '__main__':
-#  print replace_emoticons(":( is good.")
-#     # sentence = 'Again, problem, right speaker'
-#     #
-#     sdp = StanfordDependencyParser(
-#         path_to_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0.jar",
-#         path_to_models_jar="/home/philip/Documents/Sem 2/NLP/stanford-corenlp-full-2018-01-31/stanford-corenlp-3.9.0-models.jar")
-#     #
-#     # result = list(sdp.raw_parse(sentence))
-#     # parse_triples_list = [item for item in result[0].triples()]
-#     # for governor, dep, dependent in parse_triples_list:
-#     #     print governor[0], dependent[0]
-#     # dep_tree = [parse.tree() for parse in result][0]
-#     # print dep_tree
-#     # dep_tree.draw()
-#
-#     df = pandas.read_csv('output.csv', sep='\t')
-#     # for index, row in df.iterrows():
-#     #     if row[' aspect_term'] not in row[' text']:
-#     #         print row[' text'], row[' aspect_term']
-#     df = extract_aspect_related_words(df)
-
-
-
+if __name__ == '__main__1':
+    sentence = 'good buttons using mouse command'
+    analyser = SentimentIntensityAnalyzer()
+    snt = analyser.polarity_scores(sentence)
+    print("{:-<40} {}".format(sentence, str(snt)))
