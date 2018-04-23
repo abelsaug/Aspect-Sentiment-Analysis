@@ -445,8 +445,5 @@ if __name__ == '__main__':
     if validate_data(df):
         df.to_csv(args['output'], sep='\t', encoding="utf-8")
 
-if __name__ == '__main__1':
-    sentence = 'good buttons using mouse command'
-    analyser = SentimentIntensityAnalyzer()
-    snt = analyser.polarity_scores(sentence)
-    print("{:-<40} {}".format(sentence, str(snt)))
+
+
