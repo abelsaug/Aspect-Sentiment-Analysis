@@ -10,7 +10,10 @@ from stacked_generalization import StackedGeneralizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import VotingClassifier
 import model_utils
-
+# import Embedder
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def train_MultinomialNB(filePath):
     '''TRAINING'''
@@ -41,8 +44,7 @@ def train_BernoulliNB(filePath):
     accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
     print("Accuracy: ", accuracy)
     print(clf_report)
-
-        
+    
 def train_SGD(filePath):
     '''TRAINING'''
     train_df = pandas.read_csv(filePath, sep='\t')
@@ -59,7 +61,40 @@ def train_SGD(filePath):
     print("Accuracy: ", accuracy)
     print(clf_report)
 
+def train_RF(filePath):
+    '''TRAINING'''
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
+    train_class = train_df[' class'].as_matrix()
+    train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
+    for estimators in [200,300,400]:
+        for maxDepth in range (160,191,10):
+                text_clf = RandomForestClassifier(n_estimators = estimators, max_depth=maxDepth, random_state=607, n_jobs = -1).fit(train_data, train_class)
+                """PERFORMANCE EVALUATION"""
+                accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
+                print("Accuracy: ", accuracy, "Estimators: ", estimators, "Max Depth: ", maxDepth)
+#     print(clf_report)
 
+    
+def train_ET(filePath):
+    '''TRAINING'''
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
+    train_class = train_df[' class'].as_matrix()
+    train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
+    text_clf = ExtraTreesClassifier(n_estimators = 10, max_depth=2, random_state=0, n_jobs = -1).fit(train_data, train_class)
+
+    """PERFORMANCE EVALUATION"""
+    accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
+    print("Accuracy: ", accuracy)
+#     print(clf_report)
+
+
+    
+# def train_gcForest(filePath):
+
+# def train_xgBoost(filePath):
+    
 
 def train_StackedGeneralizer(filePath):
     """TRAINING"""
@@ -149,17 +184,19 @@ def final_testing():  # TODO fix test_data input transform to clf
 
 
 if __name__ == '__main__':
-    fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_pn.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_lm_sw.csv','out_data_1/data_1_lm_sw_ps.csv','out_data_1/data_1_lm_sw_ps_pn.csv','out_data_1/data_1_pn.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
-#     fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
+#     fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_pn.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_lm_sw.csv','out_data_1/data_1_lm_sw_ps.csv','out_data_1/data_1_lm_sw_ps_pn.csv','out_data_1/data_1_pn.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
+    fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv','embedding/data_set_1/lex2vec.csv','embedding/data_set_1/pos2vec.csv']
 #     fileLists = ['out_data_1/data_1_pn.csv', 'out_data_1/data_1_ps.csv', 'out_data_1/data_1_sw.csv']
-    fileLists = ['out_data_1/data_1_pn.csv']
+#     fileLists = ['out_data_1/data_1_pn.csv']
 #     fileLists = ['out_data_1/data_1_sw.csv']
     for fileno, filePath in enumerate(fileLists):
 #         print("Multinomial NB for file No: ", fileno)
 #         train_MultinomialNB(filePath)
 #         print("Bernoulli NB for file No: ", fileno)
 #         train_BernoulliNB(filePath)
-        
+        print("Random Forest for file No: ", fileno)
+        train_RF(filePath)
+#           train_ET(filePath)
 #         print("SGD for file No: ", fileno)
 #         train_SGD(filePath)
 #         print("Stacked Generalizer for file No: ", fileno)
