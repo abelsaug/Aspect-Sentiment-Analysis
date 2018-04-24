@@ -348,13 +348,13 @@ def generate_opinion_polarity_feature(opdf):
         # snt_polarity = max(snt, key=snt.get)
         # f_pol = filter(lambda (i, pol): pol == snt_polarity, enumerate(polarity))[0]
         # opin_polarity = f_pol[0] - 1
-        opin_polarity = 1.0
-        if snt['compound'] == 0.0:
-            opin_polarity = 0.0
-        elif snt['compound'] < 0.0:
-            opin_polarity = -1.0
+        # opin_polarity = 1.0
+        # if snt['compound'] == 0.0:
+        #     opin_polarity = 0.0
+        # elif snt['compound'] < 0.0:
+        #     opin_polarity = -1.0
         op_row = [row[c] for c in cols[:-1]]
-        op_row.append(opin_polarity)
+        op_row.append(snt['compound'])
         op_df.loc[len(op_df.index)] = op_row
     return op_df
 
