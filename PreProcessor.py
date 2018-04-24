@@ -393,10 +393,13 @@ if __name__ == '__main__':
 
     emoticons = {
         ":-(": "sad", ":(": "sad", ":-|": "sad",
-        ";-(": "sad", ";-<": "sad", "|-{": "sad",
+        ";-(": "sad", ";-<": "sad", "|-{": "sad", 
+        ":-@": "sad", ":@": "sad", ">_<": "sad",  
+        "-_-": "sad",
         ":-)": "happy", ":)": "happy", ":o)": "happy",
         ":-}": "happy", ";-}": "happy", ":->": "happy",
-        ";-)": "happy"
+        ";-)": "happy", ":-P": "happy", ":P": "happy", 
+        "^_^": "happy"
     }
     df = split_text(df)
 
