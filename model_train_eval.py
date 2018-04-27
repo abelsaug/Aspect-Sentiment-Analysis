@@ -7,19 +7,24 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn import linear_model
 from sklearn.tree import DecisionTreeClassifier
-
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
 from stacked_generalization import StackedGeneralizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import VotingClassifier
 import model_utils
+# import Embedder
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 def train_MultinomialNB(filePath):
     '''TRAINING'''
     train_df = pandas.read_csv(filePath, sep='\t')
-    train_df = model_utils.oversample_neutral_class(train_df)
+    # train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
-    train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
+    train_data = model_utils.apply_aspdep_weight(train_df, 0.5)
     text_clf = MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None).fit(train_data,
                                                                               train_class)  # 0.3, 0.6   Accuracy:  0.7375251109738484
 
@@ -50,13 +55,13 @@ def train_BernoulliNB(filePath):
 def train_SGD(filePath):
     '''TRAINING'''
     train_df = pandas.read_csv(filePath, sep='\t')
-    train_df = model_utils.oversample_neutral_class(train_df)
+    # train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
-    train_data = model_utils.apply_aspdep_weight(train_df, 0.9)
+    train_data = model_utils.apply_aspdep_weight(train_df, 0.7)
 
     text_clf = linear_model.SGDClassifier(loss='squared_loss', penalty='l2', alpha=1e-3, random_state=607,
                                           max_iter=20, tol=1e-2).fit(train_data,
-                                                                          train_class)  # Accuracy:  0.7710460732026527
+                                                                     train_class)  # Accuracy:  0.7710460732026527
     joblib.dump(text_clf, 'SGD_model.pkl')
 
     """PERFORMANCE EVALUATION"""
@@ -65,17 +70,64 @@ def train_SGD(filePath):
     print(clf_report)
 
 
+def train_RF(filePath):
+    '''TRAINING'''
+    train_df = pandas.read_csv(filePath, sep='\t')
+    # test_df = pandas.read_csv(filePath, sep='\t')[-200:]
+
+    # train_df = model_utils.oversample_neutral_class(train_df)
+    # train_df = model_utils.oversample_negative_class(train_df)
+    train_class = train_df[' class'].as_matrix()
+    train_data = model_utils.apply_aspdep_weight(train_df, 1.1)
+
+    # for estimators in [200,300,400]:
+    #     for maxDepth in range (160,191,10):
+    text_clf = RandomForestClassifier(n_estimators=400, max_depth=190, random_state=607, n_jobs=-1).fit(train_data,
+                                                                                                        train_class)
+    # test_data = model_utils.apply_aspdep_weight(test_df, 0.9)
+    # predicted = text_clf.predict(test_data)
+    # print accuracy_score(test_df[' class'].as_matrix(), predicted)
+    # print classification_report(test_df[' class'].as_matrix(), predicted)
+    """PERFORMANCE EVALUATION"""
+    accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
+    print("Accuracy: ", accuracy, "Estimators: ", 400, "Max Depth: ", 190)
+    print(clf_report)
+
+
 def train_polarity_clf(filePath):
     train_df = pandas.read_csv(filePath, sep='\t')
     train_df = model_utils.oversample_neutral_class(train_df)
     train_class = train_df[' class'].as_matrix()
     train_data = train_df['opin_polarity'].as_matrix()
+    print train_data
     # text_clf = BernoulliNB(alpha=1.0, fit_prior=True, class_prior=None).fit(train_data, train_class)
-    text_clf = DecisionTreeClassifier(random_state=0)
+    text_clf = LogisticRegression(random_state=0)
     """PERFORMANCE EVALUATION"""
     accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
     print("Accuracy: ", accuracy)
     print(clf_report)
+
+
+def train_ET(filePath):
+    '''TRAINING'''
+    train_df = pandas.read_csv(filePath, sep='\t')
+    train_df = model_utils.oversample_neutral_class(train_df)
+    train_class = train_df[' class'].as_matrix()
+    train_data = model_utils.apply_aspdep_weight(train_df, 0.3)
+    text_clf = ExtraTreesClassifier(n_estimators=10, max_depth=2, random_state=0, n_jobs=-1).fit(train_data,
+                                                                                                 train_class)
+
+    """PERFORMANCE EVALUATION"""
+    accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data, train_class, k_split=10)
+    print("Accuracy: ", accuracy)
+
+
+#     print(clf_report)
+
+
+# def train_gcForest(filePath):
+
+# def train_xgBoost(filePath):
 
 
 def train_StackedGeneralizer(filePath):
@@ -204,10 +256,8 @@ if __name__ == '__main__':
     #     fileLists = ['out_data_1/data_1_lm.csv','out_data_1/data_1_lm_ps.csv','out_data_1/data_1_ps.csv','out_data_1/data_1_sw.csv','out_data_1/data_1_sw_ps.csv','out_data_1/data_1_sw_ps_pn.csv']
     #     fileLists = ['out_data_1/data_1_pn.csv', 'out_data_1/data_1_ps.csv', 'out_data_1/data_1_sw.csv']
     #     fileLists = ['out_data_1/data_1_pn.csv']
-    fileLists = ['out_data_2/data_2_sw.csv']
+    fileLists = ['test_data_1.csv']
     for fileno, filePath in enumerate(fileLists):
-        # print("Multinomial NB for file No: ", fileno)
-        # train_MultinomialNB(filePath)
         # print("Bernoulli NB for file No: ", fileno)
         # train_BernoulliNB(filePath)
 
@@ -217,7 +267,21 @@ if __name__ == '__main__':
         # train_StackedGeneralizer(filePath)
         #         print("Voting Classifier for file No: ", fileno)
         #         train_VotingClassifier(filePath)
-        # print("Opinion polarity classifier for file No: ", fileno)
-        # train_polarity_clf(filePath)
+        print("Opinion polarity classifier for file No: ", fileno)
+        train_polarity_clf(filePath)
+        # print("Multinomial NB for file No: ", fileno)
+        # train_MultinomialNB(filePath)
+        #         print("Bernoulli NB for file No: ", fileno)
+        #         train_BernoulliNB(filePath)
+        # print("Random Forest for file No: ", fileno)
+        # train_RF(filePath)
+#           train_ET(filePath)
+#         print("SGD for file No: ", fileno)
+#         train_SGD(filePath)
+#         print("Stacked Generalizer for file No: ", fileno)
+#         train_StackedGeneralizer(filePath)
+#         print("Voting Classifier for file No: ", fileno)
+#         train_VotingClassifier(filePath)
 
-        hyperparam_tuning_SGD()
+
+# hyperparam_tuning_SGD()
