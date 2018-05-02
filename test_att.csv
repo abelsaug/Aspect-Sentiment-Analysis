@@ -1,0 +1,541 @@
+	example_id	 text	 aspect_term	 term_location	 class	asp_dep_words
+32	675_1	t go alone even two people isn t enough for the whole experience with pickle and a selection of meat and seafood	selection of meat and seafood	91--122	1	and a selection meat of seafood enough
+33	2227_0	my suggestion be to eat family style because you ll want to try the other dish	dish	74--80	0	try dish the other
+38	2191_0	s get a great concept but a little rough on the delivery	delivery	53--61	-1	delivery on rough the
+50	391_0	i stumble upon this second floor walk up two fridays ago when i be with two friend in town from serious sushi lover we sit at the sushi bar to be close to the action	sushi	118--123	0	sushi bar lover
+59	2599_0	the place be so cool and the service be prompt and curious	service	29--36	1	prompt the place service
+60	2599_1	the place be so cool and the service be prompt and curious	place	4--9	1	and the place service cool
+66	1101_0	they wouldnt even let me finish my glass of wine before offer another	glass of wine	35--48	0	glass of finish my wine
+81	2787_0	try the lasagnette appetizer	lasagnette appetizer	8--28	1	try the lasagnette appetizer
+82	604_0	i like the beer selection	beer selection	12--26	1	i beer the selection like
+84	2911_1	food good size menu great service and an unpretentious setting	menu	22--26	1	menu service
+87	3074_0	here for a romantic dinner but not for an all out wow din experience	dinner	23--29	1	a romantic for here dinner experience not
+90	912_0	wine list selection be good and wine by the glass be generously fill to the top	wine list selection	0--19	1	glass good selection list wine
+101	3249_0	unfortunately the food be outstanding but everything else about this restaurant be the pit	food	19--23	1	food the unfortunately
+120	2977_2	it may be a bit pack on weekend but the vibe be good and it be the best french food you will find in the area	pack	16--22	-1	a be and good may it but food bit weekend pack
+123	2960_0	have a $ 15 pre theater menu that be outstanding	pre theater menu	25--41	1	a pre 15 $ outstanding menu have theater
+134	194_0	i have try to make reservation but both time the hostess didn t have my name	reservation	21--33	0	reservation make time
+140	856_1	an oasis of refinement though somewhat uneven often reach the pinnacle of new american fine cuisine chef s passion and kitchen s precise execution be most evident in the fish dish and soup	fish dish	186--197	1	and evident fish soup in dish the
+144	2033_0	if you love wine and cheese and delicious french fare you ll love	wine	12--16	1	fare and cheese french wine
+147	1402_0	i love indian food and consider myself to be quite an expert on it	indian food	7--18	1	food indian love
+153	738_1	from the terrible service to the bland food not to mention the unaccommodating manager the overall experience be horrible	food	40--44	-1	service mention food to bland the
+165	858_1	be highly refine our seating be delay 35 minute past our reservation and the maitre d apologize and regularly keep u apprise of progress	maitre	91--97	1	maitre apologize
+173	2639_0	luckily we save room for the bbq salmon and	bbq salmon	30--40	1	and salmon bbq
+192	3517_0	the food always taste fresh and serve promptly	food	4--8	1	taste food the
+198	759_0	for great chinese food nearby you have and just a block away	chinese food	10--22	1	great chinese for food have nearby
+204	1743_0	the pizza be delicious they use fresh mozzarella instead of the cheap frozen shredded cheese common to most pizzeria s	pizza	4--9	1	the delicious pizza
+213	2588_1	off the waitress be completely unattentive the 2 time we saw her odd in a restaurant with 6 table and get our order wrong	table	101--107	0	table odd saw her
+226	973_1	ambiance and music funky which i enjoy	music	13--18	1	funky music
+232	250_0	i understand the area and folk you need not come here for the romantic allure ambiance or the five star service feature a sommelier and a complicated maze of captain and back waiter you come for the authentic food the taste the experience	ambiance	82--90	1	romantic for ambiance feature allure the come or
+236	250_4	i understand the area and folk you need not come here for the romantic allure ambiance or the five star service feature a sommelier and a complicated maze of captain and back waiter you come for the authentic food the taste the experience	sommelier	128--136	1	a and sommelier maze captain come
+238	250_6	i understand the area and folk you need not come here for the romantic allure ambiance or the five star service feature a sommelier and a complicated maze of captain and back waiter you come for the authentic food the taste the experience	back waiter	175--187	1	waiter come back
+239	2988_0	last time i go here the waitress didn t come back after take our order	waitress	27--35	-1	t waitress
+240	3092_0	try the tandoori salmon	tandoori salmon	8--23	1	try the salmon tandoori
+243	1922_1	granted the space be small than most it be the best service you will find in even the large of restaurant	service	55--62	1	be service it most the find best
+251	2521_2	the environment be romantic but the food be horrible the service be pathetic and gabriella lie about everything she could	service	59--66	-1	the service pathetic
+269	1975_0	steak cook precisely to your desired doneness accompany by salad and side that don t look like leafy road kill	steak	10--16	1	cook steak
+271	1975_2	steak cook precisely to your desired doneness accompany by salad and side that don t look like leafy road kill	side	87--92	1	side salad
+275	2875_1	decent wine at reasonable price	price	26--32	1	price at reasonable wine
+283	1624_1	the only thing more wonderful than the food which be exceptional be the service	service	74--81	1	be the service exceptional
+286	338_1	the soup for the udon be soy sauce and water	soy sauce	26--35	0	and be water soup soy sauce
+287	338_2	the soup for the udon be soy sauce and water	water	40--45	0	water sauce
+296	3202_0	we be very particular about sushi and be both please with every choice which include ceviche mix special crab dumpling assort sashimi sushi and roll two type of sake and the banana tempura	sushi	29--34	1	about sushi dumpling sashimi assort particular
+298	3202_2	we be very particular about sushi and be both please with every choice which include ceviche mix special crab dumpling assort sashimi sushi and roll two type of sake and the banana tempura	crab dumpling	113--127	1	sushi dumpling mix ceviche crab include special
+300	3202_4	we be very particular about sushi and be both please with every choice which include ceviche mix special crab dumpling assort sashimi sushi and roll two type of sake and the banana tempura	sushi	147--152	1	about sushi dumpling sashimi assort particular
+301	3202_5	we be very particular about sushi and be both please with every choice which include ceviche mix special crab dumpling assort sashimi sushi and roll two type of sake and the banana tempura	roll	157--162	1	type please roll
+316	2201_0	bottle of wine be cheap and good	bottle of wine	0--15	1	of cheap bottle wine
+318	620_1	the have over 100 different beer to offer thier guest so that make my husband very happy and the food be delicious if i must recommend a dish it must be the pumpkin tortellini	food	98--102	1	food the delicious
+323	865_1	you must have the crabmeat lasagna which be out of this world and the chocolate bread pudding for dessert	chocolate bread pudding	70--93	1	world the bread pudding chocolate
+324	865_2	you must have the crabmeat lasagna which be out of this world and the chocolate bread pudding for dessert	dessert	98--105	1	dessert for out
+325	375_0	word of advice save room for pasta dish and never leave until you ve have the tiramisu	pasta dish	30--42	1	dish pasta room for
+327	2126_0	very good service and very good price	service	10--17	1	and price good service
+329	2078_0	i recently go to this restaurant with some co worker for lunch and have an amazing time	lunch	60--65	0	lunch worker for
+331	846_1	the service be impeccable and unobtrusive the staff know what they be there to do to know their menu present your meal and attend to your need	staff	50--55	1	the impeccable staff
+337	1175_0	get your food to go find a bench and kick back with a plate of dumpling	food	9--13	0	food go your get
+338	1175_1	get your food to go find a bench and kick back with a plate of dumpling	plate of dumpling	56--74	1	a plate of dumpling with kick
+342	34_2	we be still sit at the bar while we drink the sangria but face away from the bar when we turn back around the $ 2 be go the people next to u say the bartender take it	bar	86--89	0	from sit face at bar the
+346	984_0	i ve be back to nha trang literally a hundred time for the beef cub they re that good	beef cub	62--72	1	the beef cub for time
+351	763_1	we be seat promptly a we have reservation however after that the service be slow	service	71--78	-1	the slow service
+355	691_1	the food be pretty good but a little flavorless and the portion very small include dessert	portion	58--66	-1	small the portion flavorless
+357	247_0	lived in most of my life and think the food be comparable to the flagship restaurant there	food	50--54	1	food comparable the
+362	2396_0	all the student love this place so it make for a fun young atmosphere	atmosphere	65--75	1	a atmosphere for make young fun
+363	139_0	the food here do a great service to the name that be	food	4--8	1	food the here
+367	3477_1	use to be a cool spot with decent food and a colorful if not relax atmosphere	atmosphere	79--89	1	food a atmosphere colorful
+369	90_1	the menu be worth every penny and you get more than enough both in quantity quality	quantity	78--86	1	quality quantity
+376	2790_0	too bad the food wasn t of the same heritage	food	12--16	-1	food t
+380	323_3	the menu look good except for offer the but the server do not offer up the special that be write on the board outside	special	101--109	0	write the special offer
+381	1891_0	the food be really good i have the onion soup and it be one of the best ever	food	4--8	1	food the good
+382	1891_1	the food be really good i have the onion soup and it be one of the best ever	onion soup	36--46	1	soup the onion have
+387	1785_0	it cost $ 2 extra to turn a regular roll into an inside out roll but the roll more than triple in size and that s not just from the rice	roll	36--40	-1	a and rice but turn regular triple the size roll out
+397	3426_0	i recommend get a reservation even though we saw people seat without one	reservation	22--33	0	a reservation get
+412	459_0	fresh ingredient and everything be make to order	ingredient	6--17	1	and fresh everything ingredient
+414	3042_1	we have never have any problem with charge the meal or the tip and the food be deliver quickly but we live only a few minute walk from them	food	74--78	1	food the tip
+416	152_0	and friendly service	service	19--26	1	and friendly service
+417	2426_0	they be tasty but i suggest only eat one with meat because they tend not to mesh that well with the average american digestive system	meat	51--55	0	with eat meat
+434	1542_0	as we be sit eat the subpar food the manager proceed to berate a couple of his employee for put out the wrong container for condiment and explain to them how expensive these container be	food	37--41	-1	food subpar the eat proceed
+446	1853_1	i have the salmon dish and while it be fine for the price pay i expect it to have some type of flavor	price	53--58	0	pay price the
+447	1538_0	we order a tuna melt it come with out cheese which just make it a tuna sandwich	tuna melt	13--22	-1	a sandwich it melt tuna order
+457	1272_0	t eat here unless you re starve for thai food and you work next door	thai food	42--51	-1	food starve thai for
+465	3217_0	quite frankly this be some of the bad sushi i have ever try	sushi	41--46	-1	i sushi
+466	1188_0	the food be great service be ok	food	4--8	1	food the service
+484	2501_0	service have always be friendly and efficient	service	0--7	1	service have
+488	773_0	all we receive be an apology a we leave to see our show without dinner	dinner	66--72	0	see without dinner
+491	994_0	prices be very good	prices	0--6	1	prices good
+497	1705_2	while certain staple be excellent the burger some of the pasta the food be not really the point	food	74--78	0	food the point
+522	719_1	next time we wouldn t dare order anything else other than some simple asian appetizer and drink	drink	95--101	1	drink appetizer
+536	2835_1	this place would be so much good serve by be run by a group that actually understand customer service	serve	35--41	-1	run good serve
+537	778_0	a the service be good to excellent along with the attitude	service	10--17	1	a the good service
+539	1672_0	the food be awesome definitely try the striped bass	food	4--8	1	food the awesome
+540	1672_1	the food be awesome definitely try the striped bass	striped bass	41--53	1	try the striped bass
+543	2721_0	it s simply the best meal in	meal	21--25	1	it s simply in the meal best
+546	1250_0	i order the chu chu curry and my friend order the pad thai chicken	chu chu curry	14--27	0	and the curry order chu
+549	3234_1	we go on mondays for the prix fixe and our experience with the food have be comparable to	prix fixe	25--34	0	and for experience prix mondays fixe the
+570	2840_0	terrible terrible management deserves to be shut down	management	19--29	-1	deserves management terrible
+571	1034_0	friendly service seating sushi	service	15--22	1	sushi service
+582	3320_2	s have solid food and a nice decor at reasonable price	price	56--62	1	decor price reasonable at
+589	1077_1	a cheap eat for but not for dosa	eat	8--11	1	not cheap eat
+601	2001_1	$ 200 for 2 glass of champagne not too expensive bottle of wine and 2 after dinner drink	bottle of wine	52--66	-1	and 200 of 2 too bottle not champagne expensive wine
+602	2001_2	$ 200 for 2 glass of champagne not too expensive bottle of wine and 2 after dinner drink	after dinner drink	73--92	-1	dinner 2 drink after
+604	796_0	the food be just ok at least for what food be available	food	4--8	0	food available the ok
+618	1616_3	we didn t even see a menu a our waiter describe both the special and the main dish	special	60--68	0	and both describe dish the special
+643	1592_0	our server be very helpful and friendly	server	4--10	1	our helpful server
+645	2770_0	of all this place be not romantic a claim by s editorial review	place	19--24	-1	this of all place romantic
+651	2497_0	the pad thai be excellent here as well	pad thai	4--12	1	thai pad the excellent
+683	201_1	anyway the food be good the price be right and they have a decent wine list	price	30--35	1	price right the
+691	1242_0	but the coconut rice be good	coconut rice	8--20	1	rice the good coconut
+712	2225_0	the place be a little tight and on a cold day the seating by the entranceway can be pretty drafty	seating	51--58	-1	entranceway seating drafty the
+715	1056_1	the appetizing be excellent just as good a at a reasonable price if buy by the pound	price	87--92	1	a price at reasonable excellent
+726	3319_0	although they do the typical what kind of water would you like question the service be good and overall very relax to place to eat	service	77--84	1	the question service
+727	3319_1	although they do the typical what kind of water would you like question the service be good and overall very relax to place to eat	place	123--128	1	to place eat relax
+731	2171_0	the food option rule	food option	4--16	1	food the option rule
+751	2817_0	it s also attach to s which be a cool more romantic bar	bar	68--71	1	a be bar romantic s which cool
+754	2883_0	to the gulab jamun	gulab jamun	13--24	1	gulab to the jamun
+768	193_1	the food be great and reasonably price	price	33--39	1	food be price great
+774	3424_0	my husband say he could ve eat several more the portion be fine for me he even exclaim that the french fry be the best he have have	french fry	103--115	1	french fry the best
+778	2766_2	the food be delicious from the special to the regular menu fare the dish be never a disappointment	special	33--41	1	menu the from special delicious
+779	2766_3	the food be delicious from the special to the regular menu fare the dish be never a disappointment	regular menu fare	49--66	1	fare menu to regular disappointment delicious dish the special
+780	667_0	prices be in line	prices	0--6	0	prices line
+784	1600_3	the combination of fresh tomato sauce fresh mozz cheese basil and the dough they make with import flour make this be one of the good pizza s in	dough	72--77	1	basil the dough
+786	1600_5	the combination of fresh tomato sauce fresh mozz cheese basil and the dough they make with import flour make this be one of the good pizza s in	flour	102--107	1	flour make with import
+789	2421_1	for all of you new to indian food try the paneer roll it be a piece of heaven	paneer roll	43--54	1	try the piece roll paneer
+803	3353_0	the bread at the beginning be super tasty and make you want more the pizza be delicious and come in personal size however be warn that the s pizza with prosciutto and baby arugula be actually a margarite pizza with cold prosciutto and baby arugula on top like a salad	bread	6--11	1	the beginning want bread
+822	2891_1	over the year it have always provide a pleasurable dining experience with quality food and wine	wine	93--97	1	food wine
+824	2276_0	the photo book menu be a cute touch certainly help my group and i pick the fried chicken pork chop and noodle dish that we all order	menu	14--18	1	touch menu the book photo
+827	2276_3	the photo book menu be a cute touch certainly help my group and i pick the fried chicken pork chop and noodle dish that we all order	noodle dish	108--121	0	chop dish noodle
+836	410_0	we be fan of the half price night option until some inedible squid during a recent visit	squid	73--78	-1	inedible visit squid some fan until
+852	2912_0	the dish offer be unique very tasty and fresh from the lamb sausage sardine with biscuit large whole shrimp to the amazing pistachio ice cream the best and fresh i ve ever have	dish	4--10	1	dish offer
+853	2912_1	the dish offer be unique very tasty and fresh from the lamb sausage sardine with biscuit large whole shrimp to the amazing pistachio ice cream the best and fresh i ve ever have	lamb sausage	62--75	1	lamb sausage sardine
+854	2912_2	the dish offer be unique very tasty and fresh from the lamb sausage sardine with biscuit large whole shrimp to the amazing pistachio ice cream the best and fresh i ve ever have	sardine with biscuit	77--99	1	lamb sausage sardine from biscuit fresh the with
+859	882_0	while the ambiance and atmosphere be great the food and service could have be a lot well	ambiance	10--18	1	and great ambiance the atmosphere
+860	882_1	while the ambiance and atmosphere be great the food and service could have be a lot well	atmosphere	23--33	1	atmosphere ambiance
+868	727_0	have always be a hit with me i go there usually for the sushi which be great the thai food be excellent too	sushi	75--80	1	for sushi usually excellent go the
+877	1868_0	my husband have the mesclun salmon and ice cream and he enjoy all 3 course	mesclun	19--26	1	salmon mesclun
+895	911_2	food be very good a well consider that we try the budget selection though i wish the pork belly that i order be roast a bit longer so that fat be more of a melt in your mouth experience	fat	154--157	-1	that fat more
+899	1887_2	it be kinda noisy and the table be close together but it s still a beautiful place to enjoy a nice dinner	place	79--84	1	a beautiful enjoy it but s place close still
+904	109_1	i haven t eat a lamb chop as delicious a that the salad be really nice dress with lemon and extra virgin olive oil	salad	51--57	1	the dress salad
+908	2487_0	you can get an excellent meal at most of the many indian restaurant on nearby for the cost of one the dainty dish here	meal	25--29	1	excellent an meal get
+909	2487_1	you can get an excellent meal at most of the many indian restaurant on nearby for the cost of one the dainty dish here	dish	127--133	1	dish the dainty here nearby
+916	3701_0	late nite omelletes be not good here there be no variety	omelletes	10--19	-1	late good omelletes nite
+918	1185_0	it s a great place to pick up a cheap lunch or dinner	lunch	38--43	1	a cheap lunch dinner pick or
+922	1032_1	whenever you need a fix will be there with quality fish and great service	service	78--85	1	fish great service
+928	1780_0	despite a slightly limited menu everything prepare be do to perfection ultra fresh and a work of food art	menu	27--31	-1	everything menu
+942	813_1	all the appetizer and salad be fabulous the steak be mouth watering and the pasta be delicious	salad	23--29	1	salad appetizer
+945	2862_0	besides have the table we have be promise give to other restaurant patron twice before we be actually seat we be serve dish we hadn t order three time receive one of our order 20 minute after the rest of the table have be serve and that order be undercooked and charge $ 45 more than we should have be on our bill	table	19--24	-1	table the rest have of
+951	3292_0	service be top notch	service	0--7	1	notch service
+952	3343_0	the food now be inconsistent	food	4--8	-1	food the now
+961	175_0	the decor be vibrant and eye please with several semi private both on the right side of the din hall which be great for a date	decor	4--9	1	and vibrant decor eye the
+965	1057_0	service be slow and they don t toast	service	11--18	-1	and slow they service
+972	1948_1	we ve be follow chef s food around for 15 year and while remain classic his innovation with bistro fare have make u return and return	chef	21--25	1	food chef
+973	1948_2	we ve be follow chef s food around for 15 year and while remain classic his innovation with bistro fare have make u return and return	food	33--37	1	and around food remain chef s year follow
+975	1656_0	the spicy tuna and salmon be the best we ve ever have	spicy tuna	4--14	1	and spicy salmon tuna the best
+982	2986_1	upon enter we be greet by the owner and who go out of their way to be more than gracious host	host	119--124	1	to host gracious way be
+985	3418_1	dish now adorn the selection although there s still a large number of vegetarian friendly choice	vegetarian friendly choice	79--106	1	friendly of vegetarian number choice
+996	3012_0	if you re look for perfect traditional sushi go here if you re look for interesting combination try sushi of gari s east side	sushi	42--47	1	perfect look for gari sushi traditional side
+1006	2522_0	like say her bread come from a special bakery when we have see her buy it downtown manhattan	bread	16--21	-1	come her bread
+1015	1345_3	barbecued codfish be gorgeously moist a if poach yet the fabulous texture be let down by curiously bland season a spice rub might have overwhelm however herb mix or other sauce would have do much to enhance	herb mix	170--178	-1	overwhelm mix sauce or herb
+1021	792_0	has the chef and owner change	chef	8--12	0	chef and the has owner
+1025	3692_1	but don t ever order bacon late at nite either platter or in sandwich for that matter don t from any take out place a it be from the morning frying turn out hard almost like back hurt my molar	platter	48--55	-1	platter either
+1032	443_2	pizza the only pizza in that should not have additional topping the crust taste like the best freshly bake bread	pizza	17--22	1	the only have pizza
+1035	1377_0	i find it on a cold night the perfect spot to warm up	spot	40--44	1	perfect the spot night
+1040	2741_2	be warm and attentive beef carpaachio be excellent huge portion and pasta be fresh and well prepared	pasta	80--85	1	pasta fresh
+1041	2741_3	be warm and attentive beef carpaachio be excellent huge portion and pasta be fresh and well prepared	portion	67--74	1	huge portion excellent
+1043	370_1	kalbi and nebbiolo do work together	nebbiolo	10--18	0	nebbiolo kalbi
+1051	1161_0	bar most gorgeous bartender you ve ever see specifically the blond lady	bar	6--9	1	bartender bar
+1054	3123_1	we be plan to get dessert but the waitress basically through the bill at u before we have a chance to order	waitress	40--48	-1	dessert the but waitress
+1055	3123_2	we be plan to get dessert but the waitress basically through the bill at u before we have a chance to order	bill	71--75	0	get bill u basically through the
+1064	1911_5	i have a terrific meal and our server guide u toward a very nice wine in our price range instead of allow u to purchase a similarly price wine that wasn t as good	price	139--145	0	range price wine
+1066	1000_0	the food be good especially their more basic dish and the drink be delicious	food	4--8	1	food the good
+1077	280_0	the food be delicious and beautifully prepared along with the friendly and personable service	food	4--8	1	food the delicious
+1078	280_1	the food be delicious and beautifully prepared along with the friendly and personable service	service	86--93	1	the service prepared along with friendly
+1083	610_1	we have a great them watch the show and character and ar food be just what we be look for	food	61--65	1	food character show
+1093	1855_0	my husband and i enjoy sangria	sangria	23--30	1	i enjoy sangria husband
+1094	3409_0	but after last night be the only place i m eat indian cuisine	indian cuisine	63--77	1	cuisine indian eat
+1100	3670_3	first the wrong bread come out with the appetizer then when i try to order a second glass of wine for my main course	main course	108--119	0	course main my order for
+1101	685_0	not sure where the previous reviewer lonk din but be in a great neighborhood and have great food	neighborhood	74--86	1	a be din sure neighborhood and great but have in where
+1102	685_1	not sure where the previous reviewer lonk din but be in a great neighborhood and have great food	food	101--105	1	food great have
+1123	3335_1	the food be undercooked the sauce watery and the vegetable raw	vegetable	51--61	-1	watery vegetable the
+1130	340_0	the rice be poor quality and be cook so badly it be hard	rice	4--8	-1	the rice quality
+1132	340_2	the rice be poor quality and be cook so badly it be hard	cook	34--40	-1	cook be quality badly
+1144	1949_1	if it s just a quick martini at the bar which i recommend s or a mind blow go to village	bar	36--39	0	the recommend bar martini at
+1145	1949_2	if it s just a quick martini at the bar which i recommend s or a mind blow roast chicken go to village	roast chicken	88--101	1	a blow mind s roast chicken
+1154	53_1	so much more than the usual bar food go there to enjoy the menu while sample one of their hand craft beer	menu	60--64	1	enjoy menu the
+1156	2025_0	no free drink	drink	8--13	0	drink free no
+1157	259_0	this be my first time write a review for a restaurant because the food and service be excellent	food	68--72	1	food and the service excellent
+1160	1211_1	while they keep the capex to a minimum they do put some cash into the bagel because they among the best in the city	bagel	71--77	0	put bagel into the
+1175	2939_1	all the food be excellent consider the quality of food in most moderately price restaurant be mediocre this be slightly more pricey and well worth it	quality of food	45--60	1	all restaurant food of excellent the quality mediocre
+1187	2791_1	the porcini mushroom pasta special be tasteless so be the seafood tagliatelle	seafood tagliatelle	61--80	-1	be tasteless seafood so the tagliatelle
+1190	1586_0	the food portions	food portions	4--17	1	food the portions
+1201	1792_0	the staff ignore my friend and i the entire time we be there	staff	4--9	-1	ignore the staff
+1203	1727_0	the in house lady on night have outrageously good taste in music and moreover take request	music	71--76	1	taste music in
+1220	3621_1	the food be a diamond in rough the food be delicious and homemade with the perfect balance of herb and tomato	food	38--42	1	food the diamond delicious
+1243	981_1	while be notorious for utter lack of comfort and decor horribly slow wait staff and horribly quick meal be one of the best vietnamese restaurant i ve ever be to the pho be delicious and come with very fresh vegetable	decor	63--68	-1	decor comfort
+1245	981_3	while be notorious for utter lack of comfort and decor horribly slow wait staff and horribly quick meal be one of the best vietnamese restaurant i ve ever be to the pho be delicious and come with very fresh vegetable	meal	114--119	-1	quick meal one
+1248	1987_0	on the other hand if you be not fool easily you will find hundred of restaurant that will give you service and ambiance that be on par with and food that will outshine in presentation taste choice quality and quantity	service	106--113	0	and par service give food ambiance
+1252	1987_4	on the other hand if you be not fool easily you will find hundred of restaurant that will give you service and ambiance that be on par with and food that will outshine in presentation taste choice quality and quantity	taste	206--211	-1	taste quality find choice
+1255	1987_7	on the other hand if you be not fool easily you will find hundred of restaurant that will give you service and ambiance that be on par with and food that will outshine in presentation taste choice quality and quantity	quantity	233--241	-1	quality quantity
+1260	2881_0	having not be home in the last 2 year may skew this reviewer a bit but the food be tasty and spicy sans the oil that come float along at similar venue	food	79--83	1	food the tasty
+1261	2881_1	having not be home in the last 2 year may skew this reviewer a bit but the food be tasty and spicy sans the oil that come float along at similar venue	oil	113--116	0	the oil come having
+1273	953_4	with so many good restaurant on the i don t need overprice food absurdly arrogant wait staff who don t recognize they work at a glorified diner clumsy service and management that doesn t care	diner	146--151	-1	diner service
+1283	729_0	the atmosphere isn t the great but i suppose that s how they keep the price down	atmosphere	4--14	0	atmosphere isn
+1288	3410_0	you must try the shrimp appetizer	shrimp appetizer	17--34	1	try the shrimp appetizer
+1308	898_0	but the thing that my wife and i hat be it be so loud and it felt like bar or pub	bar	76--79	-1	felt bar like pub or
+1313	767_0	if you live in new york city you ll find good food at small restaurant outside of time square and spend half the amount	food	49--53	-1	food good find
+1318	2938_0	they didn t disappoint service from the second i arrive at the door be extremely pleasant and attentive with almost one server per table	service	24--31	1	pleasant arrive service
+1323	408_1	the rice to fish ration be also good they didn t try to overpack the rice	rice	71--75	1	rice the good ration overpack
+1330	1412_0	i be not a vegetarian but almost all the dish be great	dish	42--48	1	dish almost great all the
+1331	2251_0	i be very impressed by this low key upper eastside and their authentically thai cuisine	thai cuisine	77--89	1	cuisine eastside thai authentically their
+1332	991_0	for the location the price be very reasonable	price	22--28	1	price the reasonable
+1345	2316_0	not a typical pizza joint but good for a low key and fairly cheap nice sit down dinner	dinner	81--87	1	dinner sit
+1352	3205_3	serve very fresh fish have a trendy modern ambiance prime location on and friendly service	location	66--74	1	a prime and service on modern ambiance location have trendy
+1358	1176_0	i almost want to write a bad review so no one would ever go here and i could have all the dumpling to myself	dumpling	93--102	1	the all dumpling have
+1362	1340_0	decor be minimalist and clean nothing to distract or commend	decor	0--5	0	nothing decor
+1365	2622_1	food great price great service	price	18--24	1	food price great
+1368	1279_0	pizza especially the slice	pizza	7--12	1	slice pizza
+1390	772_2	in reality to maximize potential diner they be still take phone reservation and reallocate table of those wait in the lobby	table	101--107	-1	reallocate table wait
+1393	3676_0	the wine be always good the tapa be always yummy especially with the warm pita bread	wine	4--8	1	the good wine
+1394	3676_1	the wine be always good the tapa be always yummy especially with the warm pita bread	tapa	29--34	1	tapa the especially
+1399	3667_3	but when you be seat the waitress be great they explain everything on the menu and the price of the food be really cheap for the service you get	menu	81--85	0	and on menu price everything the
+1400	3667_4	but when you be seat the waitress be great they explain everything on the menu and the price of the food be really cheap for the service you get	food	108--112	0	food of price the
+1403	3460_1	the fresh best variety and the fast delivery	delivery	44--52	1	delivery the fast variety
+1404	1621_0	go to for 1st class service and terrific food	service	27--34	1	and service for food 1st go class
+1419	518_0	a very inviting restaurant with friendly service	service	42--49	1	with friendly service restaurant
+1426	2187_2	the drink be always well make and wine selection be fairly price	price	62--68	1	be price selection fairly
+1429	297_0	and at the conclusion of this culinary nightmare the check be give to our table by knock over a glass of water	check	53--58	0	be the check
+1430	297_1	and at the conclusion of this culinary nightmare the check be give to our table by knock over a glass of water	table	76--81	0	our table to give
+1431	297_2	and at the conclusion of this culinary nightmare the check be give to our table by knock over a glass of water	glass of water	101--115	0	a knock of nightmare water glass over
+1432	2964_0	not a small feat for good french food in the area	french food	26--37	1	food good feat french for
+1439	1874_1	the entree be bland and small dessert be not inspire	dessert	32--39	-1	be entree inspire dessert bland the
+1455	3496_0	pizza be a little soggy	pizza	0--5	-1	soggy pizza
+1459	3084_3	the food include famous scrumptious bombay style chaat such a bhelpuri sevpuri and samosa chaats as well a other great indian appetizer	samosa chaats	85--98	1	sevpuri samosa chaats
+1468	3334_0	go if you re use to good indian restaurant food from abroad	indian restaurant food	35--57	1	good to restaurant food re indian abroad
+1474	2668_1	the waiter actually poured water on my hand and walk away	water	27--32	0	water poured
+1480	2071_0	try the sea bass	sea bass	8--16	1	try the bass sea
+1484	765_0	sushi wasn t anything spectacular for the price	sushi	0--5	0	sushi anything
+1505	1564_0	people be always friendly	people	0--6	1	friendly people
+1508	3118_0	from the entree to the side to the drink everything be creatively prepared yet still simple	entree	9--16	1	everything entree side
+1509	3118_1	from the entree to the side to the drink everything be creatively prepared yet still simple	side	24--29	1	to the entree side drink
+1512	1382_0	it be not above ordinary and the beef version have cheap undercooked beef	beef version	34--46	-1	ordinary version undercooked the beef
+1524	2064_0	we split a tasty vegetable samosa and the malai tikka wrap	vegetable samosa	17--33	1	a and wrap tasty split vegetable samosa
+1541	612_0	great place to go for a drink too because they have 100 kind of beer	kind of beer	56--69	1	of kind beer 100 have
+1544	2916_1	over price and small portion	portion	22--30	-1	price portion over
+1547	859_2	meanwhile the bartender continue to pour champagne from his reserve after we have finish our bottle and we enjoy an amuse of turnip soup with pureed basil gratis	turnip soup with pureed basil	130--159	1	gratis of amuse soup turnip basil pureed with
+1549	750_1	the food be well prepared and the service impeccable	service	35--42	1	the impeccable service
+1552	2645_2	their best dish be the spice curry noodle with shrimp a dish that would cost $ 23 95 be most place but it be $ 16 here	dish	69--73	1	a noodle their cost dish best
+1556	2453_0	my husband say the portion be very small but if my main course be good to eat the portion would ve be fine for me	portion	20--28	-1	small portion fine the
+1557	2453_1	my husband say the portion be very small but if my main course be good to eat the portion would ve be fine for me	portion	88--95	1	small portion fine the
+1572	2855_1	while the food be good certainly no the service be horrendous	service	53--60	-1	the good service
+1588	287_0	best dish be nori wrapped tuna	nori wrapped tuna	13--30	1	dish wrapped nori tuna be
+1601	2101_0	they be such a rip off $ 8 95 for four small meat patty in steamed bun and not worth try	meat patty in steamed bun	47--75	-1	steamed meat for four bun in small patty $
+1609	845_1	the dining room be quietly elegant with no music to shout over how refreshing	music	43--48	1	with elegant shout music no
+1613	1327_1	the menu seem to have a wide variety of dish for seafood lover and interesting way of prepare them	variety of dish	31--48	1	a wide and way prepare variety of have lover dish
+1621	782_2	food great lay out and awesome service	service	38--45	1	lay service out
+1649	757_1	it s a place for people who pay a lot for mediocre food noise and a chance to be with their fellow bridge and tunnel folk	noise	57--62	-1	and noise for food chance lot mediocre
+1652	472_2	after complain about the chicken dish the manager come over to tell u that no one have ever complain before and that we just didn t know what the dish be suppose to taste like	dish	154--158	0	about chicken suppose dish the complain
+1654	1339_0	went for a late weekday lunch	lunch	24--29	0	lunch went
+1655	3649_0	bartender be unable to tear himself away from friend at bar	bartender	0--9	-1	unable bartender
+1656	3649_1	bartender be unable to tear himself away from friend at bar	bar	58--61	0	bar at friend
+1662	162_0	went on a double date with friend and his girlfriend for a few drink and appetizer	drink	63--69	0	and went drink appetizer
+1669	951_0	one would think we d get an apology or complimentary drink instead we get a snobby waiter wouldn t even take our order for 15 minute and give u lip when we ask him to do so	waiter	87--93	-1	waiter wouldn
+1686	1381_1	tried the pad see ew on the recommendation of the last reviewer since it s one of my favorite dish	dish	94--100	1	dish of my favorite one
+1690	2702_0	guacamole shrimp appetizer be really great we both have the filet very good didn t much like the frites that come with but the filet be so good neither of u care	guacamole shrimp appetizer	0--26	1	great shrimp guacamole appetizer
+1692	2702_2	shrimp appetizer be really great we both have the filet very good didn t much like the frites that come with but the filet be so good neither of u care	frites	100--106	-1	the much come frites like
+1693	2702_3	shrimp appetizer be really great we both have the filet very good didn t much like the frites that come with but the filet be so good neither of u care	filet	131--136	1	the good t filet
+1699	2137_1	the chicken pot pie be exceptional the cheeseburger huge and delectable and the service professional wan warm	cheeseburger	39--51	1	huge the cheeseburger
+1700	2137_2	the chicken pot pie be exceptional the cheeseburger huge and delectable and the service professional wan warm	service	81--88	1	wan service
+1707	233_0	service be good and food be wonderful	service	0--7	1	and food good service
+1734	2485_3	the menu change portion be even small than before a lentil dish be salty beyond edibility a basmati rice dish lack flavor	basmati rice dish	102--119	-1	a basmati salty dish lentil rice flavor
+1738	2647_1	feature a nice cigar bar and have great staff	staff	48--53	1	great have staff
+1746	1343_0	fluke sashimi drizzle with jalapeno lime olive oil the fruit of the oil nicely highlight the fish s sweetness	fluke sashimi	0--13	1	fluke drizzle sashimi
+1765	812_0	the food be delicious and the waiter be incredibly helpful and attentive consider we be the only one there for the first hour	food	4--8	1	food and the waiter delicious
+1769	1204_0	perhaps this food be consider extreme to an resident but for the rest of u who ve actually eat ethnic food this be simply dull	ethnic food	117--128	-1	this consider food dull perhaps ethnic eat
+1780	2334_0	although be warn their dinner menu to sit and take out price be different	price	57--63	0	price take
+1790	1424_4	my pick be fry with vegetable juice very special and tasty one of my personal favorite sichuan spicy soft shell crab this one be for hardcore sichuan food fan i wouldn t recommend to my american friend a it s very spicy	sichuan spicy soft shell crab	171--200	1	soft spicy personal of favorite it one sichuan very s shell t crab my friend
+1796	316_0	there be a great deal for 6 blue point oyster and a beer or glass of wine for $ 8	blue point oyster	29--47	0	blue and for deal point beer 6 oyster
+1807	2262_2	the spicy tuna roll be unusually good and the rock shrimp tempura be awesome great appetizer to share	appetizer	86--95	1	be great tempura awesome share appetizer
+1808	3456_0	the staff be knowledgeable and full of personality	staff	4--9	1	knowledgeable the staff
+1822	1015_1	a cool place to hang with your friend for a couple of healthy drink and dessert	drink	63--69	1	and healthy of couple drink dessert
+1833	2332_1	food and the price be very reasonable	price	19--25	1	food price the
+1841	2961_1	authentic french cuisine in substantial portion	portion	48--56	1	cuisine portion substantial in
+1843	2085_0	the one vegetarian entree s treasure be actually quite a surprise it be delicious and have winter melon cover an assortment of fresh mushroom and vegetable	vegetarian entree	8--25	1	surprise vegetarian treasure entree one
+1844	2085_1	the one vegetarian entree abby s treasure be actually quite a surprise it be delicious and have winter melon cover an assortment of fresh mushroom and vegetable	abby s treasure	27--42	1	entree vegetarian treasure one s surprise the abby
+1847	1173_0	at 5 dumpling for $ 1 you just can not go wrong	dumpling	5--14	1	1 5 dumpling
+1848	1470_0	but the pizza be way to expensive	pizza	8--13	-1	the expensive pizza
+1853	842_1	be decent but not as smooth a i would expect from a place with these price and reputation	reputation	91--101	1	price reputation
+1872	3282_0	the grilled cheese at home afterwards be better	grilled cheese	4--18	1	better cheese the home grilled
+1873	666_0	service great food	service	6--13	1	food service
+1874	666_1	service great food	food	21--25	1	food great service
+1880	39_1	when we be finally seat our waitress come by twice 1 for our order and 2 for our check	check	85--90	0	our 2 check for
+1882	2458_0	it s the perfect restaurant for life style it get cool design awsome drink and food and lot s of good look people eat and hang at the pink bar	design	59--65	1	drink design
+1883	2458_1	it s the perfect restaurant for life style it get cool design awsome drink and food and lot s of good look people eat and hang at the pink bar	drink	74--80	1	and awsome drink s design eat cool
+1895	343_0	it be obvious that no one in the restaurant have any idea about or experience with japanese cuisine	japanese cuisine	82--98	-1	cuisine with japanese experience
+1899	3114_0	to begin we be tell there be a 30 minute wait and start to leave when the hostess offer to call u on our cell phone when the table be ready	hostess	81--88	1	the hostess offer
+1902	492_0	the server give you some sample slice of your order while you wait shortly i might add	server	4--11	1	the server give
+1938	1767_0	fish be so very fresh	fish	0--4	1	fresh fish
+1939	634_0	the price be compare to the quality of service and food	price	4--10	1	price the compare
+1945	3138_0	having discover s on the internet we enter with qualm but be instantly put to ease by the fish tank that greet you a u walk in	fish tank	103--113	1	tank fish ease greet the by
+1958	1714_0	i only try a simple dish of spinach ravioli in a light oil and garlic sauce but it actually fair good than most italian joint i ve tried similar dish at	spinach ravioli in a light oil and garlic sauce	30--77	1	a and oil spinach of light garlic in dish sauce ravioli
+1961	337_0	the bad excuse for japanese food i ve ever encounter	japanese food	21--34	-1	i food japanese
+1965	3198_0	we have pam s special fried fish and it be amaze	pam s special fried fish	7--31	1	and fish amaze s have fried pam special
+1978	844_0	no gimmick here the food speaks for itself in it freshness and preparation	food	24--28	1	food the here
+1980	3709_0	my wife have the fry shrimp which be huge and love it	fry shrimp	16--28	1	huge the fry have shrimp
+1991	16_3	night without a reservation we have to wait at the bar for a little while but the manager be so nice and make our wait a great experience	wait	116--120	1	bar make to have our wait nice
+1994	3425_1	we have the scallop a an appetizer and they be delicious and the sauce be wonderful	appetizer	26--35	1	a and delicious an they appetizer
+2007	267_3	the bar be very well stock with interesting beer and well price wine	price	61--67	1	price wine
+2022	532_0	cheese plate be a varied delight and great bargain at $ 10	cheese plate	0--12	1	delight plate cheese
+2025	1681_0	most of the server be very attentive friendly and quite attractive	server	12--19	1	most the of server
+2037	3513_0	the service be poor restaurant poorly lit staff not very attentive and i would have rather eat at a s than this joint	service	4--11	-1	poor the service
+2038	3513_1	the service be poor restaurant poorly lit staff not very attentive and i would have rather eat at a s than this joint	staff	45--50	-1	lit staff
+2041	2192_2	my and i still choose to eat there a lot because of diverse cocktail the chill decor and the decent sushi	sushi	106--111	1	decent decor sushi the
+2042	2020_0	we end the dinner with a surprisingly light and flaky apple tarte tatin	apple tarte tatin	56--73	1	a apple light tatin tarte dinner with
+2048	1664_1	be slow have to wait to order and get food although not crowd	food	46--50	0	food get
+2073	718_0	however i think this place be a good hang out spot	spot	47--51	1	spot hang out
+2084	1116_1	the zucchini and mash potato be a blend of garlic and butter which simply melt in your mouth	mash potato	17--32	1	potato mash zucchini
+2087	3001_0	the staff be courteous and friendly	staff	4--9	1	the courteous staff
+2088	2067_0	decor be nice though service can be spotty	decor	0--5	1	decor nice
+2096	1835_0	some of the worker ignore me and talk to the female customer other time they ve skip my order	worker	12--19	-1	worker the some of
+2102	85_0	try the chocolate mud cake warm with 2 scoop of dulce de leche gelato	chocolate mud cake warm	8--35	1	scoop chocolate try mud warm cake the
+2110	488_1	i would have get some cole slaw and a knish if my stomach have more space	knish	41--46	0	knish slaw a
+2111	769_0	three of u arrive for dinner about 5 30 on a week night without reservation	dinner	24--30	0	dinner arrive for
+2125	2318_0	for dinner i have the chicken tikka masala and some garlic naan	chicken tikka masala	21--41	0	and tikka naan have masala the chicken
+2137	594_0	the food be decent at best and the ambience well it s a matter of opinion some may consider it to be a sweet thing i think it be just annoy	food	4--8	0	food decent the
+2150	1935_0	shockingly easy to throw a group dinner here simple contract deposit only to hold the date the entire 2nd fl mezzo for our gap of 20	group dinner	27--39	0	a dinner group throw
+2157	2230_0	what i didn t like be how the food come right after it be order	food	31--35	-1	food the come
+2158	574_0	moderate price	price	9--15	0	price moderate
+2169	877_0	so some of the review here be accurate about the crowd and noise	crowd	51--56	-1	and about noise crowd accurate the
+2170	877_1	so some of the review here be accurate about the crowd and noise	noise	61--66	-1	noise crowd
+2173	2415_2	you get what you pay for and with that logic in mind be a great place to grab some cheap eats and drink in a beautiful setting	setting	127--134	1	a beautiful drink setting in
+2179	946_0	we only order dessert and drink but no refill be offer	dessert	16--24	0	and we dessert drink only order
+2181	303_0	i have be here a few time for dinner once for brunch and twice for lunch	dinner	33--39	0	dinner for time
+2190	2899_2	the bread and lamb chop i have before the meal be quite good however	meal	42--46	0	the meal have before
+2192	584_1	s have the best service and atmosphere in	atmosphere	31--41	1	atmosphere service
+2193	2906_0	instead order an ice cold beer which to me work with indian	beer	28--32	1	work ice an beer cold order
+2201	3697_0	the corned beef and pastrami be excellent much less fatty than those big tourist place around	corned beef	4--15	1	and pastrami beef corned excellent the
+2202	3697_1	the corned beef and pastrami be excellent much less fatty than those big tourist place around	pastrami	20--28	1	pastrami beef
+2204	2364_1	cute place nice wait staff but would never go there again	place	5--10	1	go cute place but staff
+2211	1602_0	service be great takeout be good too	service	0--7	1	great service
+2214	929_0	everything be excellent the menu be quite extensive and you eat with a view on both side of the city	menu	29--33	1	menu extensive the
+2218	2746_0	i ve never have bad service and the fish be fresh and delicious	service	19--26	1	and fresh bad fish service
+2220	2718_0	the first time i go and be completely take by the live jazz band and atmosphere i order the	live jazz band	55--69	1	and jazz order band live take the by
+2225	350_0	appetizer	appetizer	7--18	1	appetizer
+2227	3227_0	be the best deal in town for a night dinner at a fine restaurant	dinner	47--53	1	town a dinner for night
+2228	3684_0	also the sandwich near $ 7 didn t come with anything like chip or a side	sandwich	10--20	-1	also the sandwich come t
+2231	2104_0	the wait here be long for dim sum but if you don t like share table or if the typical raucous dim sum atmosphere be not your gig this be a sleek for alternative	wait	4--8	-1	the here wait
+2238	693_1	everything be always cook to perfection the service be excellent the decor cool and understated	decor	73--78	1	decor cool
+2240	519_0	selection of wine and seafood	selection of wine	6--23	1	and of seafood selection wine
+2250	2405_1	great food at reasonable price	price	25--31	1	food price at reasonable
+2252	1730_1	salads be a delicious way to begin the meal	meal	40--44	1	the begin meal
+2263	1668_0	should you happen to be impress by the cuisine definitely try it	cuisine	41--48	1	cuisine the impress by
+2271	189_2	everything from the soft bread soggy salad and 50 minute wait time with an incredibly rude service to deliver below average food	service	95--102	-1	service rude deliver an with wait
+2287	365_5	food be deliver by a busboy not waiter we get no cheese offer for the pasta our water and wine glass remain our entire meal when we would have easily spend another $ 20 on wine	water and wine glass	89--111	-1	and on 20 water glass remain our wine
+2302	2240_1	the service be fast and friendly and the food be very tasty and they have the best hot sauce to add to your meal	food	42--46	1	food the tasty service
+2303	2240_2	the service be fast and friendly and the food be very tasty and they have the best hot sauce to add to your meal	hot sauce	84--93	1	the sauce best have hot
+2364	3377_0	then get rip on free box wine	box wine	25--33	1	box on wine free get
+2382	2076_1	try the spicy shrimp appetizer again not the great value in the world but worth the price and the lamb vindaloo be great	lamb vindaloo	104--117	1	lamb price vindaloo the
+2386	2631_0	i have have so many dinner here and it s always be perfect on a date with my husband with my mom with girlfriend and large group	dinner	19--26	1	many dinner so have
+2387	1979_0	when you want a piece of beef head on over	beef	25--29	1	head beef
+2413	1799_0	every waitress and customer who pass by me bump into my chair	waitress	6--14	0	and customer every waitress pass
+2415	1433_0	it be run by the same sichuan chef who start the chain in	sichuan chef	22--34	0	sichuan run same chef start the by
+2426	1867_2	the first 2 course be very good but the chocolate sampler be too rich for me and the dessert wine far too sweet	dessert wine	90--102	-1	dessert the good sweet wine
+2430	273_0	we have a party in their private room and they make it truly memorable and be very helpful in the planning	private room	24--36	0	and room make private their in party
+2440	1459_0	the eggplant parmesan be also great and my friend who grow up in claim that no one serve a good bake ziti with meat sauce	eggplant parmesan	4--21	1	the great eggplant parmesan
+2442	1459_2	the eggplant parmesan be also great and my friend who grow up in claim that no one serve a good bake ziti with meat sauce	serve	95--101	1	that serve ziti one sauce grow
+2446	1441_0	my entree of hot pot with seafood be full of imitation crabmeat with a couple piece of shrimp and squid and be unnecessarily heat with a burner	hot pot with seafood	13--33	-1	entree of pot burner hot full piece with seafood
+2450	1441_4	my entree of hot pot with seafood be full of imitation crabmeat with a couple piece of shrimp and squid and be unnecessarily heat with a burner	crabmeat	56--64	-1	of full crabmeat imitation
+2454	733_0	in such a crappy part of town to find a good value for lunch this place be great	value	45--50	1	a great good value lunch find
+2456	3328_0	its not curry in a slurry crap and regular run of the mill food	curry	8--13	0	not curry crap slurry
+2480	2737_2	the service be excellent the decor be great and the food be delicious and come in large portion	food	54--58	1	food the delicious service
+2481	2737_3	the service be excellent the decor be great and the food be delicious and come in large portion	portion	91--99	1	large portion come in
+2486	1454_0	the only possible drawback to this last point be that a of the date of this posting the additional menu item be only write in	menu item	101--111	-1	write item the additional menu
+2488	1206_0	the place be small and cramped but the food be fantastic	place	4--9	-1	small the place
+2493	493_1	dill be the perfect compliment for your unforgeable sandwich and they give you plenty of them	sandwich	62--70	1	and sandwich for give unforgeable your compliment
+2496	621_2	the entertainment be great they have show that go on through out the dinner	entertainment	4--17	1	the great entertainment
+2505	429_0	for authentic thai food look no further than toons	thai food	14--23	1	food thai authentic look
+2510	958_0	i choose to go with one of the special the braised lamb shank in red wine which be excellent	braised lamb shank in red wine	44--74	1	lamb shank excellent in go braised the red wine
+2519	3401_2	small serving for main entree i have salmon wasnt impressed girlfriend have chicken it be good	serving	6--14	-1	small i serving for
+2522	1226_1	you can actually get 2 salad worth if u take it home and add it to some lettuce	lettuce	73--80	0	lettuce add some to
+2525	3688_0	it be far more popular a a bar than a a restaurant with only a few table and the waiter be the bartender but we greatly enjoy the unobtrusive atmosphere	bar	28--31	1	a bar bartender restaurant
+2526	3688_1	it be far more popular a a bar than a a restaurant with only a few table and the waiter be the bartender but we greatly enjoy the unobtrusive atmosphere	table	70--76	-1	a and restaurant waiter few only table with
+2531	1182_1	the food be very good for it s price good than most fried dumpling i ve have	price	31--36	1	price good
+2538	2902_1	still try it once since if you end up love the food it could be one of your best dining experience	dining experience	86--104	1	of experience one dining your best
+2540	2822_0	other guest enjoy pizza santa fe chop salad and fish and chip	pizza	21--26	1	fe pizza
+2551	1942_0	our waiter and all of the people help him be attentive and genuine	waiter	4--10	1	waiter our and help all
+2553	1894_1	the place be a which mean simple dish and wine serve efficiently in a bustling atmosphere	dish	42--48	1	dish simple and wine mean
+2564	204_1	though you will undoubtedly be seat at a table with what seem like barely enough room no matter what the size of your party the warm atmosphere be worth the cramped quarter you ll have fun and forget about the tight spot you re in	atmosphere	139--150	1	party atmosphere warm the
+2574	713_1	besides when you have bad service that s less money you have to tip	money	48--53	-1	service less money that tip s
+2581	98_0	s be consistently delicious authentic italian food	italian food	46--58	1	food authentic delicious italian
+2586	2272_1	they offer the same menu but have creative drink that be load with alcohol and cheeky name but they do cost you	drink	43--49	1	load drink have creative
+2594	2336_0	ambiance be barely romantic but management try	ambiance	0--8	-1	ambiance romantic
+2595	2336_1	ambiance be barely romantic but management try	management	32--42	1	try management
+2596	3265_0	i must warn the reader that the portion size be very small especially the appetizer so if you plan to eat until you be full and do not intend to order the chef s special taste menu prepare to order and pay for an appetizer 1 dish for each person because the portion be not for share a main entree and the cold udon at the end of the meal	portion	32--40	-1	portion entree the size
+2599	3265_3	i must warn the reader that the portion size be very small especially the appetizer so if you plan to eat until you be full and do not intend to order the chef s special taste menu prepare to order and pay for an appetizer 1 dish for each person because the portion be not for share a main entree and the cold udon at the end of the meal	main entree	303--314	0	a be and entree end pay udon portion because not main
+2601	3265_5	i must warn the reader that the portion size be very small especially the appetizer so if you plan to eat until you be full and do not intend to order the chef s special taste menu prepare to order and pay for an appetizer 1 dish for each person because the portion be not for share a main entree and the cold udon at the end of the meal	chef	163--167	1	chef menu the
+2608	3015_1	after we get our sashimi order i could not believe how small the portion be	portion	66--74	-1	small be portion the
+2622	1157_0	right off the major deegan you get lady from all over the city	lady	35--41	1	lady get
+2624	1872_0	thalia be a beautiful restaurant with beautiful people serve you but the food doesn t quite match up	people serve	48--62	1	beautiful people restaurant serve but you with match
+2634	1268_2	the massaman curry that i order be as thin a water and aside from the poorly fry tofu that i order in it they graciously provide me with piece of poorly cook potato	potato	174--180	-1	cook of piece potato
+2641	2550_0	once they run out of gnocchi and make it for me from scratch	gnocchi	21--27	0	of run gnocchi
+2643	2778_0	service above average but that could be because we be 13 of u	service	6--13	1	be average service
+2652	864_1	the portion be small but be that the food be so good make up for that	food	42--46	1	food the good
+2660	3432_3	had 1 appetizer 2 entree and 2 coke and the bill be $ 55 00 not include tip	bill	47--51	0	coke bill the
+2669	135_2	and it all come at a very reasonable price congee noodle and rice dish be no more than $ 3 6 each	noodle	53--60	0	a noodle price at reasonable congee come
+2701	424_0	their pad penang be delicious and everything else be fantastic	pad penang	6--16	1	and their penang everything pad delicious
+2703	3091_1	the puke green wall leave a lot to be desire but the food be very good	wall	15--20	-1	leave wall the green puke
+2705	7_0	i like dont get me wrong it be just that the people who work there be evil and incompetent	people	56--62	-1	the work evil people
+2709	1232_0	big and soft as well a good lunch food	lunch food	29--39	1	a good food big well lunch as
+2719	2644_0	the barbecued salmon be elegantly spice and not at all dry	barbecued salmon	4--21	1	the salmon barbecued spice
+2720	2812_0	owner a the guy who own which be just down the street on and 1st	owner	5--10	0	a owner
+2727	1082_0	so the menu be write in chalk above your head and it all sound delicious	menu	8--12	0	write menu the
+2730	1641_0	seriously this be the best all you can eat in town as everyone say the spicy tuna hand roll be the best have 4 of these and you ve break even	spicy tuna hand roll	75--96	1	and spicy ve roll say tuna hand the best
+2737	3507_1	his wife the hostess complete the comforting atmosphere by be delightfully warm and gracious	atmosphere	54--64	1	the atmosphere complete comforting
+2738	957_0	the menu consist of standard brassiere food good then place like etc	menu	4--8	1	menu the consist
+2744	866_0	the staff there be very attentive and down to earth	staff	4--9	1	the there staff
+2751	3226_1	night be a bargain at the $ 28 prix fix this include a three course meal plus three glass of wine pair with each course	three course meal	66--83	1	a glass three course each include with meal
+2753	3226_3	night be a bargain at the $ 28 prix fix this include a three course meal plus three glass of wine pair with each course	course	130--136	0	course include with meal each
+2758	3603_0	i have eat a lot of pizza here	pizza	22--27	0	of here lot pizza
+2760	1419_0	the tahali be small thoroughly unremarkable and $ 14 95	tahali	4--9	-1	small the tahali
+2766	2843_4	from the complimentary chef app of a delicate butternut squash ravioli in a delicious truffle sauce to an amazing buttery and tender langostino entree to a dessert that i can t remember because of the fabulous cakebread cabernet we be drink the whole evening be amaze	cakebread cabernet	210--228	1	be because remember fabulous cakebread the cabernet
+2769	3579_0	i get an excellent piece of cheesecake and we have several other nice pastry	cheesecake	28--38	1	cheesecake piece of
+2781	2161_0	the lox be always fresh too	lox	4--7	1	fresh lox the
+2784	840_0	food be ok fish be cook well	food	0--4	0	food ok
+2791	3302_1	the staff offer impeccable service	service	28--35	1	impeccable service offer
+2792	160_0	we end our great experience by have gulab jamun dessert recommend by the waiter	gulab jamun dessert	40--61	1	gulab dessert jamun recommend
+2793	160_1	we end our great experience by have dessert recommend by the waiter	waiter	81--87	1	waiter the by recommend
+2812	1288_1	the owner and employee be friendly and their pizza be fantastic	employee	15--24	1	owner employee
+2822	3438_1	the service be good and ambience be good for a date or group outing	ambience	24--32	1	ambience good
+2826	1519_0	the staff be excellent special that girl behind the bar european chic	staff	4--9	1	the special staff
+2827	1519_1	the staff be excellent special that girl behind the bar european chic	bar	54--57	0	bar european
+2829	2904_1	stick with the chicken beef and lamb dish	beef	24--28	1	and beef stick dish chicken with the
+2832	1009_1	the service be bad the food take to forever to come we sit on the upper level	food	25--29	-1	food the take
+2837	307_0	this restaurant be a wonderful place to go many time and it be reasonably price	price	75--81	1	be price reasonably it
+2840	1625_0	the only thing the waiter don t do for you be wipe your chin when you leave	waiter	19--26	1	waiter t
+2856	3412_0	this place have the the correct ambience and an excellent staff to make you feel like a guest and a friend at the same time	place	5--10	1	this place have
+2857	3412_1	this place have the the correct ambience and an excellent staff to make you feel like a guest and a friend at the same time	ambience	31--39	1	and have ambience the correct staff
+2869	1514_1	and they have these home make potato chip at the bar that be the most delicious thing in the world	bar	50--53	0	the make bar at thing
+2873	1970_0	the steak be excellent and one of the best i have have i taste the butter intially but in no way do it overwhelm the flavor of the meat	steak	4--9	1	taste the steak excellent
+2876	1970_3	the steak be excellent and one of the best i have have i taste the butter intially but in no way do it overwhelm the flavor of the meat	meat	135--139	1	of flavor meat the
+2878	186_0	the ambience be pretty and nice for conversation so a casual lunch here would probably be best	ambience	4--12	1	ambience the pretty
+2885	702_1	we love the food drink and atmosphere	drink	18--24	1	and atmosphere love food drink the
+2893	3019_1	my husband and i have be there a couple of time and each time we sit at the sushi bar chef and order everything ala carte	chef	90--94	0	bar sit sushi chef at the
+2894	3019_2	my husband and i have be there a couple of time and each time we sit at the sushi bar chef and order everything ala carte	ala carte	125--134	0	everything order carte ala
+2898	195_0	if the weather be nice try to snag an outside table	table	47--52	1	table outside an snag
+2907	1171_1	never in my life do i think that i could be satisfy both in taste and in quantity for $ 3 00 in	quantity	76--84	1	taste in $ quantity
+2918	1960_2	20 minute for our reservation but it give u time to have a few cocktail and enjoy our surroundings and each other	surroundings	89--101	1	enjoy surroundings and other our
+2938	611_0	simple comfort food and what hot and large portion	comfort food	7--19	1	and what food comfort simple portion
+2943	1643_3	stay away from the two specialty roll on the menu though too much avocado and rice will fill you up right quick	rice	81--85	-1	rice avocado
+2944	2989_0	we didn t get drink refill and she didn t even offer u the option of dessert	drink refill	14--27	-1	and refill drink t get
+2955	1710_3	our waiter be fine the place look nice in that not try too hard way but at those price a little more should be expect of your food	food	137--141	-1	food of expect your
+2959	649_2	when my husband and go there we spend $ 60 00 have lobster tails need i say more i can t say any more it a place you ll never forget if you never go you ll miss a of your life time	lobster tails	52--65	1	lobster tails have
+2960	3450_0	in an effort to increase turnover the restaurant offer no dessert beyond the complimentary espresso cup fill with chocolate mousse	espresso cup fill with chocolate mousse	94--135	1	complimentary cup dessert offer espresso mousse chocolate the beyond with fill
+2962	974_0	i ve be to this restaurant more than a dozen time and when i m crave for pho grass chicken or on rice this be the place to go	pho	78--81	1	chicken pho
+2970	378_0	my fish be delicious in an incredible curry sauce	fish	3--7	1	fish my delicious
+2971	378_1	my fish be delicious in an incredible curry sauce	curry sauce	39--50	1	incredible sauce an delicious in curry
+2972	490_0	if you be in search of the most authentic deli experience look no further than the famous and historic s down on the	deli	47--51	1	deli experience
+2974	414_0	average to good thai food but terrible delivery	thai food	16--25	1	food delivery thai good
+2977	1857_1	the space be nice but when we order our drink we be in for a surprise	drink	40--45	-1	our drink order
+2987	3303_1	i have lobster it have 2 oz of maine lobster in it	maine lobster	37--50	1	of it lobster oz have maine
+2995	3595_0	it be so bad i actually refuse to pay for my food	food	47--51	-1	food pay my for
+2999	2692_1	the staff be very attentive the ambience lovely and the food superb	ambience	34--42	1	ambience lovely
+3003	2590_2	i love when restaurant think use fancy expensive ingredient make the food fine cuisine even with no idea how to use them	food	74--78	1	food cuisine
+3027	314_1	all i can say be $ 2 pint during happy hour and the some of the cheap oyster you ll find in the city though the quality be some of the best	quality	117--124	1	quality the some
+3044	1917_2	the food serve in small tasting portion a an option be very good with each dish be good than the next	portion	34--42	1	portion tasting serve in
+3059	188_1	over time the food quality have decrease substantially it be a lot less crowd than it use to and the service must definitely be part of the reason	service	107--114	-1	the part service
+3062	949_0	we be seat outside and the waiter spill red wine and hot tea on myself and my date	waiter	31--37	-1	waiter wine
+3073	3159_0	their coffee be quite good too	coffee	6--12	1	their coffee good
+3079	3149_0	i have to ask her three time before she finally come back with the dish request	dish	67--71	0	dish request
+3088	3570_0	for two people with tip be less than $ 25 buck	tip	20--23	0	with tip $ people
+3090	206_0	of course the reason it so pack be because the food be so delicious	food	50--54	1	food the delicious
+3095	278_0	i be not sure if i would call the food here indian a it be a fusion of what seem to be french with an indian or exotic touch	food	34--38	0	food the indian
+3098	353_0	their margarita be best i ve have since i ve return from	margarita	6--15	1	i their margarita
+3113	1902_0	my husband and i both order the steak medium	steak	34--39	0	steak medium
+3114	341_0	furthermore the rice have no seasoning so the sushi be bland and disgusting	rice	17--21	-1	furthermore rice the have
+3116	341_2	furthermore the rice have no seasoning so the sushi be bland and disgusting	seasoning	29--38	-1	seasoning bland have no
+3118	1649_1	this place have really fresh sushi and a nice large menu of japanese classic cuisine	menu	50--54	1	a cuisine menu sushi large nice
+3119	1649_2	this place have really fresh sushi and a nice large menu of japanese classic cuisine	japanese classic cuisine	58--82	1	menu of classic japanese cuisine
+3122	3247_0	my wife and i also enjoy the spinach the low mein and other attraction	spinach	31--38	1	enjoy and mein spinach attraction the
+3133	3488_0	the waiter and owner be nonchalant about this and promise to call the exterminator but weren t a dismayed or apologetic a i would have expect	waiter	4--11	-1	nonchalant waiter the and owner
+3142	394_3	aside from the the chef recommend an assortment of fish include boton shrimp etc	boton shrimp	99--111	0	etc boton shrimp
+3148	2945_1	while the room be not particularly comfortable once you re seat you ll forget about everything except what s on your plate	plate	120--125	1	plate what forget on except s your
+3149	3487_0	i ve live in all my life and have never before see so many waterbugs in one place except in a really bad dream	waterbugs	64--73	-1	waterbugs so many
+3160	2779_2	my host ask for appetizer for the group and the waiter give u not only what we order but some other item that be not order	waiter	51--57	0	waiter the group
+3178	2210_0	the last two time i order from here my food be soo spicy that i could barely eat it and the spice take away from the flavor of the dish	food	42--46	-1	food my from order here
+3183	147_0	this place have the best chinese style bbq rib in the city	bbq rib	38--46	1	city style chinese bbq have the rib best
+3191	3088_0	the kamasutra and bombay cosmopolitan be excellent and will have you tipsy in no time	kamasutra	5--14	1	kamasutra and cosmopolitan bombay
+3192	3088_1	the kamasutra and bombay cosmopolitan be excellent and will have you tipsy in no time	bombay cosmopolitan	21--40	1	kamasutra bombay the cosmopolitan excellent
+3202	2991_1	the steak be very fatty and the sauce be overpower and not very tasty	sauce	33--38	-1	overpower the steak sauce
+3203	2146_0	the staff make you feel at home the food be great and the atmosphere be wonderful	staff	4--9	1	make the staff
+3206	2474_0	the food be alright some stuff be good some be not like the steak dish which tend to be dry	steak dish	65--75	-1	like tend dish not the steak
+3209	3672_1	the staff be too busy order sushi for dinner and then lay it out to eat on the bar to even bring me my check	sushi	32--37	0	and be busy sushi dinner lay order staff
+3220	182_4	i like the samosa chai and the whole but the dosas and dhal be kinda disappointing	dhal	60--64	-1	i disappointing dhal
+3234	441_0	yeah sometimes the service can be slow	service	20--27	-1	the slow service
+3251	1952_0	the service be excellent and the food be delicious	service	4--11	1	and food the service excellent
+3272	1614_0	going to be like go to your favorite aunt s house for dinner assume that your aunt be a great italian cook	dinner	64--70	0	assume house dinner for
+3273	2109_0	the sushi have be from average to below average the wait service have always be sub par the atmosphere go from nice to really irritate if you sit in the area beyond the kitchen the acoustic be horrid everything echo be extremely loud	sushi	4--9	-1	the sushi have
+3278	665_0	i would recommend put your name down and then get a drink at a local bar first though because of the wait time	drink	60--65	0	a drink bar get
+3281	140_0	i fell in love with the egg noodle in the beef broth with shrimp dumpling and slice of bbq roast pork	egg noodle in the beef broth with shrimp dumpling and slice of bbq roast pork	24--104	1	and pork noodle love beef egg broth of dumpling shrimp fell slice roast in the with bbq
+3287	922_0	but the service be a bit slow	service	8--15	-1	the slow service
+3290	352_0	when i saw that their website have a link to da in i know there be go to be good pizza	pizza	97--102	1	go to be good pizza
+3301	2289_0	the service be good and the restaurant be clean	service	4--11	1	and the good service restaurant
+3314	2573_2	although we be look for regular lettuce and some walnuts the salad we get be great	walnuts	54--61	0	some look salad walnuts
+3327	1158_0	good food at the restaurant a bit expensive but great if you want to impress your date	food	5--9	1	food good want restaurant
+3329	220_1	i highly recommend to anyone who want delicious top grade caviar and fantastic service	service	93--100	1	want service grade top caviar delicious
+3331	2216_0	i wasn t thrill to have to wait on line for thirty minute but i guess that s the price you pay for a popular place	wait	29--33	-1	to line guess have wait
+3333	970_0	grilled whole fish wonderful great spicing	fish	14--18	1	grilled spicing fish whole
+3335	1123_0	plus when our entree be hold up in the kitchen on a busy night the owner send over complimentary summer roll to hold u over	entree	15--22	-1	our entree roll send be
+3343	2987_1	the food be delicious the atmosphere be relax and we have now adopt 347 a our secret on second	atmosphere	28--38	1	atmosphere the relax
+3350	3017_0	i be a 100 lb girl have a glass of wine and a glass of beer prior to the dinner and i be still after my visit to this place	glass of wine	26--39	0	a prior of glass beer have wine
+3351	3017_1	i be a 100 lb girl have a glass of wine and a glass of beer prior to the dinner and i be still after my visit to this place	glass of beer	46--59	0	a prior of glass beer have wine
+3355	2309_0	there be a downside if you re order in the delivery guy have attitude	delivery guy	49--62	-1	delivery the guy order in
+3366	1534_0	i didn t expect to like as much a i do but the pastrami on challah sandwich i have be otherworldly the soup be like s and the knish give s a run for it money	pastrami on challah sandwich	55--83	1	on sandwich pastrami i challah have the
+3370	3071_0	romantic atmosphere with only around 15 table at most	atmosphere	14--25	1	table atmosphere romantic
+3373	2995_0	i really like both the scallop and the mahi mahi on saffron risotto yum	scallop	23--31	1	and both mahi like i scallop the
+3379	479_0	the sandwich be out of this world	sandwich	4--15	1	the sandwich out
+3383	1358_0	really tasty spring roll and noodle for a good price though	spring roll	13--25	1	and noodle though spring price tasty roll
+3384	1358_1	really tasty spring roll and noodle for a good price though	noodle	30--37	1	noodle roll
+3388	2389_2	good because hey it s more food but bad because dim sum be suppose to be small portion so you can try out more dish and small so that each dish be cheap	portion	85--93	-1	be try to portion suppose small
+3389	2389_3	good because hey it s more food but bad because dim sum be suppose to be small portion so you can try out more dish and small so that each dish be cheap	dish	118--124	0	and cheap try small each dish more
+3405	966_2	the price can not be beat for the quality quantity freshness and taste	quantity	43--51	1	freshness quantity
+3423	3677_3	the wine and cheese plate be plentiful and can t wait to try the fondue or table grilling	table grilling	76--90	1	try table the fondue grilling
+3426	2400_1	their exotic salad be basic ly a delicious little green salad with a peanut sauce that be perfect before their sweet basil fry tofu	green salad	49--60	1	exotic a little salad their green basic ly
+3431	2998_1	even if the food wasn t this good the garden be a great place to sit outside and relax	garden	39--45	1	this the good place garden
+3432	2998_2	even if the food wasn t this good the garden be a great place to sit outside and relax	place	57--62	1	a be great garden sit relax and place t
+3434	739_0	the food come out wrong the waiter be no where to be find and the wine show up at the end of the meal	food	4--8	-1	food the come
+3442	3467_0	no you re go to go back because the food be good	food	39--43	1	food the good
+3445	1558_0	while this can hardly be call a restaurant it be possibly the best deal in $ 4 for a plate heap with rice and 2 3 entree	rice	116--120	1	and rice with entree deal
+3452	3003_3	the fish be fresh and each piece be slice to perfection and season by the sushi chef usually with a little fresh wasabi and soy sauce but also sometimes with some sea salt	soy sauce	128--137	1	soy sauce wasabi
+3476	1808_0	however it s the service that leave a bad taste in my mouth	service	18--25	-1	service however it leave s the
+3485	2197_1	they need a kick out of it but until then the sushi be pretty good and the place be consistent	place	75--80	1	the sushi place consistent
+3489	2782_1	all in all the food be above average and i would return to see how they operate with four or less dinner	dinner	99--106	0	four dinner
+3490	1398_0	food excellent service and a pretty atmosphere make this a great choice for dinner and the $ 5 99 lunch buffet make it an even good choice for lunch	food	10--14	1	food service
+3491	1398_1	food excellent service and a pretty atmosphere make this a great choice for dinner and the $ 5 99 lunch buffet make it an even good choice for lunch	service	26--33	1	and atmosphere service food make excellent
+3492	1398_2	food excellent service and a pretty atmosphere make this a great choice for dinner and the $ 5 99 lunch buffet make it an even good choice for lunch	atmosphere	48--58	1	a atmosphere pretty service
+3509	1038_2	the service be mediocre and the lack of air conditioning make for a less than comfortable meal	meal	92--96	-1	a make meal for comfortable
+3514	151_0	however if you want great food at a great price and don t mind the decor you can t beat this place	food	27--31	1	food great want
+3515	151_1	however if you want great food at a great price and don t mind the decor you can t beat this place	price	43--48	1	a great price at want
+3526	802_0	one of my favorite though be the angry lobster a cold lobster salad that be magnificent	angry lobster	35--48	1	be salad though angry one lobster the
+3531	629_0	the place s decor and hidden bathroom make for a good laugh	decor	12--17	1	and make hidden decor
+3539	1539_0	we also order two hot dog think they would be pretty good since there be a whole section on the menu devote to them	hot dog	20--28	0	hot think two dog
+3549	3567_1	we get in line and be serve while in line a banyan fritter	serve	24--30	0	be fritter serve get
+3557	3463_1	i don t know about you guy but when i go somewhere to eat i go for the food not for the atmosphere	atmosphere	90--100	0	food not atmosphere the for
+3560	2114_0	we be tire and cold when we get to the restaurant then we sit down to begin order appetizer	appetizer	89--99	0	begin order appetizer
+3585	2259_0	we eat outside at s bar because s restaurant next door be overflow	bar	30--33	0	s bar eat at
+3592	777_0	from the appetizer we eat the dim sum and other variety of food it be impossible to criticize the food	appetizer	9--19	1	the from eat appetizer

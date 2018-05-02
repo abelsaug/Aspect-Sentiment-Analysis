@@ -1,0 +1,1167 @@
+omelletes 1
+snack foods 2
+styles of pizza 3
+ingredients 4
+containers for condiments 5
+chilean sea bass 6
+whole grilled fish 7
+bhelpuri 8
+eats 9
+candles 10
+dinner specials 11
+mesclun 12
+chicken dish 13
+pizza 14
+fish fillet in spicy source 15
+tips 16
+crab cocktail 17
+prix fixe lunch 18
+pad thai 19
+chongqing hotpot 20
+entree 21
+front doors 22
+french cuisine 23
+patio 24
+workers 25
+tahali 26
+tuna roll 27
+beef 28
+tom kha soup 29
+serving 30
+traffic noise 31
+prices 32
+appetizer platter 33
+price 34
+fish with hot bean source 35
+scallion pancake 36
+live jazz band 37
+food 38
+tables 39
+paratha bread 40
+roast pork buns 41
+santa fe chopped salad 42
+group dinner 43
+beers 44
+bombay beer 45
+tamarind duck 46
+mixed drink special 47
+crabmeat lasagna 48
+roasted tomato soup with chevre 49
+rice to fish ration 50
+cooks 51
+dining rooms 52
+change motto 53
+lunch buffet 54
+vegetarian entree 55
+eat family style 56
+secondi 57
+bagel 58
+foie gras terrine with figs 59
+cost 60
+bombay cosmopolitan 61
+staffs 62
+zucchini blossoms 63
+trout 64
+flavors 65
+cheeseburger 66
+lava cake dessert 67
+bagels 68
+personal herb garden 69
+margherita 70
+pad see ew 71
+deli 72
+lamb sandwich 73
+choices per course 74
+thia food 75
+steak with portobello mushrooms 76
+quasi thai 77
+spicy scallop roll 78
+summer rolls 79
+chef 80
+lemon salad 81
+sasabe potatoes 82
+lobster ravioli 83
+pieces of sushi 84
+tip 85
+champagne 86
+tuna melt 87
+characters 88
+whole 89
+lemon grass chicken 90
+order 91
+dosa 92
+crunchy tuna 93
+canned vegetables 94
+shrimp appetizer 95
+dinosaur rolls 96
+tuna tartare 97
+outdoor atmosphere 98
+sushi places 99
+peter s favourite pizza with prosciutto and baby arugula 100
+panini 101
+platter 102
+beer 103
+duck confit 104
+pumpkin tortellini 105
+dining experience 106
+raddichio 107
+ethnic food 108
+deep fried skewers 109
+thai noodles with shrimp and chicken and coconut juice 110
+quality value 111
+buttery and tender langostino entree 112
+ice cream 113
+hand crafted beers 114
+staff 115
+cold udon 116
+menu items 117
+soup for the udon 118
+shredded cheese 119
+basmati rice dish 120
+sichuan spicy soft shell crab 121
+interior decoration 122
+lobster bisque 123
+takeout 124
+staff member 125
+take out 126
+rose special roll 127
+caprese salad appetizer 128
+white wine 129
+hong kong styled milk 130
+exotic salad 131
+dim sum combo 132
+salmon 133
+discount 134
+halibut 135
+back patio 136
+crabmeat 137
+waterbugs 138
+attitude 139
+thai spiced curry noodles with shrimp 140
+salads 141
+portion 142
+interior 143
+pictures 144
+kosher dills 145
+ambiance 146
+lines 147
+half price sushi deal 148
+drumsticks over rice 149
+fried tofu 150
+pie 151
+vegetables 152
+mayonnaise 153
+tomato sauce 154
+tiramisu chocolate cake 155
+foods 156
+sevpuri 157
+guy 158
+chicken vindaloo 159
+banana tower 160
+sauces 161
+japanese food 162
+date spot 163
+delivery guys 164
+brassiere food 165
+go go hamburgers 166
+delivery 167
+eggs 168
+gigondas 169
+pre fixe menu 170
+hot tea 171
+tiramisu 172
+salad 173
+prix fixe 174
+decore 175
+amount 176
+shrimp 177
+wine list selection 178
+pad se ew 179
+french fries 180
+sardines with biscuits 181
+miso soup 182
+pork chops 183
+spicy food 184
+jazz brunch 185
+crab croquette apt 186
+tramezzinis 187
+office lunch 188
+makhani 189
+server 190
+scene 191
+barbecued salmon 192
+mimosas 193
+lox 194
+french fare 195
+taiwanese 196
+spicy fried clam rolls 197
+pakistani food 198
+potato chips 199
+customer service 200
+italian cheese 201
+edamame pureed 202
+apps 203
+sauce on the pizza 204
+grilled bronzino 205
+bartenders 206
+main dining room 207
+buns 208
+kielbasa 209
+appetizers 210
+wasabi 211
+chicken with portobello mushrooms 212
+counter service 213
+chicken on rice with ginger 214
+crowded 215
+cole slaw 216
+pesto pizza 217
+tandoori 218
+gourmet indian cuisine 219
+tomatoes 220
+ceiling 221
+gulab jamun 222
+semi private both 223
+coffee 224
+secret back room 225
+host 226
+dim sum atmosphere 227
+smoked salmon and roe appetizer 228
+specials menus 229
+white sauce 230
+dinner menu 231
+bistro fare 232
+blue fin torry fatty tuna 233
+corner booth table 234
+boton shrimp 235
+cuisine 236
+vegetarian dishes 237
+rice congee soup 238
+chicken with cashew nuts 239
+hosts 240
+glasses of champagne 241
+bottle minimum 242
+places 243
+glass of water 244
+dress codes 245
+cheese plate 246
+garlic mashed potatoes 247
+beer selection 248
+plates 249
+nebbiolo 250
+sicilian 251
+management 252
+bales 253
+salmon dish 254
+spinach and corn dumplings 255
+terrace 256
+new england chowder 257
+menu description 258
+egg custards 259
+values for your money 260
+soy sauce 261
+filet mignon dish 262
+godmother pizza 263
+lobster tails 264
+shows 265
+apple tarte tatin 266
+sesame chicken 267
+house wine 268
+fresh tomatoes 269
+lamb chettinad 270
+shrimp appetizers 271
+grilled chicken special with edamame puree 272
+half price saturday night option 273
+selection of meats and seafoods 274
+waitstaff 275
+customers 276
+gourmet food 277
+table grilling 278
+staples 279
+cheese sticks 280
+iceberg 281
+lobster teriyaki 282
+malai kofta 283
+main entree 284
+caprese salad 285
+perks 286
+lamb sausages 287
+plastic forks 288
+grilled cheese 289
+spinach 290
+lunch special 291
+lobby 292
+taiwanese food 293
+signs 294
+espresso cup filled with chocolate mousse 295
+samosa chaats 296
+clubhouse 297
+indian cuisine 298
+dinner meeting 299
+thai food 300
+dal bukhara 301
+room 302
+taste 303
+fresh mozz cheese 304
+obv caviar 305
+surroundings 306
+tastes 307
+water 308
+striped bass 309
+inside table 310
+spinach mushroom calzone 311
+case of snapple 312
+cold lobster salad 313
+new york bagel 314
+crowds 315
+duck breast special 316
+assortment of fresh mushrooms and vegetables 317
+parmesan porcini souffle 318
+mexican food 319
+after dinner drink 320
+drunken chicken 321
+dinner location 322
+sake list 323
+sushi 324
+dim sum 325
+filling pasta mains 326
+lox spread 327
+fried clams 328
+area 329
+outside 330
+herb mix 331
+roti rolls 332
+sake menu 333
+crispy duck 334
+salad with perfectly marinated cucumbers and tomatoes with lots of shrimp and basil 335
+dessert 336
+cod with pineapple tempura 337
+cheese 338
+menu selections 339
+dimsum 340
+indian restaurant food 341
+business dinner 342
+maitre 343
+shrimp scampi 344
+eel 345
+prix fixe menu 346
+tempura dish 347
+stomach 348
+shanghai low mein 349
+shaku shaku 350
+godmother pizza a sort of traditional flat pizza with an olive oil brushed crust and less tomato sauce than usual 351
+main dishes 352
+frites 353
+delivery service 354
+zucchini 355
+lime juice concoction 356
+wine choices 357
+glass of prosecco 358
+chicken teriyaki dish 359
+shaku shaku dinner 360
+filets 361
+pickles and slaw 362
+anti pasta 363
+black cod with yuzu sauce 364
+scallion pancakes 365
+banana tempura 366
+private room 367
+beef cubes 368
+pasta 369
+pastries 370
+club soda filled with ice no lime 371
+italian decor 372
+value ofr money 373
+hot dogs 374
+beef carpaachio 375
+chicken pad tai 376
+curry 377
+fillings 378
+duck noodles 379
+drink 380
+times square cocktail 381
+located 382
+calzones 383
+seating 384
+reputation 385
+sushi place 386
+bacon 387
+zen feel 388
+stuffing 389
+dim sum dish 390
+parathas 391
+non veg selections 392
+seafood tagliatelle 393
+environment 394
+nori 395
+topping 396
+steak au poivre 397
+space 398
+price tag 399
+table 400
+noodles 401
+filet mignon with garlic mash 402
+beans on toast 403
+mussels in spicy tomato sauce 404
+seasonal beer 405
+dining hall 406
+coconut rice 407
+outdoor seating 408
+selection 409
+green salad 410
+toasting 411
+beginning appetizers 412
+classical furniture 413
+mezzanine 414
+flavor 415
+air conditioning 416
+paneer roll 417
+squid 418
+dosa batter 419
+fatty yellow tail 420
+food suggestions 421
+dining 422
+wine flight 423
+desserts with frog jelly 424
+look 425
+reuben sandwich 426
+blue cheese 427
+sommelier 428
+wine by the glass 429
+swordfish 430
+green curry with vegetables 431
+pita bread 432
+noodle dishes 433
+egg noodles in the beef broth with shrimp dumplings and slices of bbq roast pork 434
+food art 435
+pizzas 436
+roti 437
+actors 438
+chicken casserole 439
+comfort 440
+pre theatre or after theatre drinks 441
+deliveries 442
+tamarind margaritas 443
+little dishes 444
+bottle of wine 445
+martini 446
+chefs 447
+chicken tikka 448
+beverages 449
+lamb 450
+cigar bar 451
+dosas 452
+clams oreganta 453
+icing on the cake 454
+garlic shrimp 455
+bar service 456
+wait building 457
+technique 458
+location 459
+thin crust pizza 460
+aesthetics 461
+reservation sigh 462
+whitefish salad 463
+at moshphere 464
+breads 465
+tandoori salmon 466
+dessert wine 467
+sugar 468
+sauce 469
+white bean bruschetta 470
+comfort food 471
+stuff 472
+employees 473
+turkey burger 474
+prix fix 475
+lassi 476
+pork loin 477
+shell crab 478
+black white shakes 479
+blond wood decor 480
+2 person table 481
+raw vegetables 482
+tuna 483
+service 484
+corned beef sandwich 485
+entertaining 486
+korma 487
+glass noodles 488
+glass of sangria 489
+people serving 490
+pinot noir 491
+spicy tuna 492
+cook 493
+red curry 494
+front door 495
+malai tikka wrap 496
+courses 497
+carrys mashman green red 498
+mixed drinks 499
+bun 500
+portion size 501
+jazz bands 502
+cream cheeses 503
+walls 504
+red wine 505
+seaweed 506
+jalapeno 507
+waiters 508
+lobby area 509
+diners 510
+outdoor chairs 511
+chicken with garlic sauce 512
+beef version 513
+plate of dumplings 514
+lemon 515
+crust 516
+wine 517
+fast food 518
+filet 519
+knish 520
+glass of beer 521
+curry flavor 522
+jazz nights 523
+meat 524
+beverage selections 525
+pasta entre es 526
+specials 527
+pre theatre 3 course dinner 528
+sweet basil fried tofu 529
+selection of wines 530
+chilaquiles 531
+lamb glazed with balsamic vinegar 532
+sushi chef 533
+wait staff 534
+stir fry blue crab 535
+gnocchi 536
+establishment 537
+scenery 538
+broth with noodles 539
+dining room 540
+bottle of sake 541
+pork belly 542
+cocktails 543
+braised lamb shank in red wine 544
+bar food 545
+spreads 546
+spicy wontons 547
+donut like deep fried dough they call ow ley soh 548
+avocado 549
+cooked 550
+in sandwiches 551
+extra virgin olive oil 552
+fromages 553
+round tables 554
+rock shrimp tempura 555
+fish tanks 556
+glass front 557
+delivery time 558
+dumpling menu 559
+menu choices 560
+chai 561
+grapes 562
+salt pepper shrimps 563
+chocolate mud cake warmed 564
+mango chicken 565
+indian fast food 566
+winter melon 567
+plain cheese slice 568
+pre theater menu 569
+cater 570
+shredded squid family style 571
+japanese classic cuisine 572
+meat dishes 573
+bills 574
+people with carts of food 575
+sichuan food 576
+orrechiete with sausage and chicken 577
+pastrami on challah sandwich 578
+onions 579
+mushroom pizza 580
+eggplant parmesan 581
+eggs benedict 582
+gulab jamun dessert 583
+live music 584
+nosh pastrami sandwich 585
+whitefish 586
+food portions 587
+roll 588
+nori wrapped tuna 589
+freshness 590
+noise 591
+setting 592
+coriander 593
+fried shrimp 594
+lobster sandwich 595
+rasamalai 596
+bbq salmon 597
+regular menu fare 598
+house varieties 599
+rye bread 600
+spicy ethnic foods 601
+sake martini 602
+garlic knots 603
+roast duck 604
+rice 605
+olive cream cheese 606
+valentines day dinner 607
+wines 608
+delicate butternut squash ravioli in a delicious truffle sauce 609
+barbecued codfish 610
+cod with paella 611
+oatmeal 612
+gin and tonic 613
+spices 614
+apples 615
+cannoli 616
+sour spicy soup 617
+variety 618
+kababs 619
+wallet 620
+drinks 621
+starter 622
+flour 623
+lentil dish 624
+glasses of wine 625
+blue point oysters 626
+counters 627
+thai popcorn 628
+diner 629
+neapolitan pizza 630
+seltzer with lime 631
+veal parmigiana 632
+banyan fritter 633
+priced 634
+basil 635
+ladies 636
+money 637
+desert 638
+eggplant 639
+fried mini buns with the condensed milk and the assorted fruits on bean curd 640
+dessert menu 641
+salmon casserole 642
+fusion of french and indian cooking 643
+surrounding 644
+pickles 645
+noodle and rices dishes 646
+onion soup 647
+fries 648
+lunch 649
+hostess 650
+pork chop 651
+green curry dish 652
+pub 653
+house champagne 654
+mussel selection 655
+sake 656
+atmosphere 657
+sushi plate 658
+butter 659
+seating in the garden 660
+fruit of the oil 661
+main courses 662
+expresso 663
+pancetta 664
+turnip soup with pureed basil 665
+pastrami or corned beef 666
+counter 667
+garden 668
+french bistro fare 669
+mussels 670
+beef cube on rice 671
+crab cakes 672
+seated 673
+garlic 674
+jalapeno lime olive oil 675
+all you can eat deal 676
+refreshment 677
+door 678
+unda egg rolls 679
+glass of leaping lizard 680
+appetizer 681
+price range 682
+takeout menu 683
+fresh tomato sauce 684
+ambient 685
+service staff 686
+fish dishes 687
+bottles of wine 688
+cooking 689
+portions 690
+entertainment 691
+cantonese 692
+appetizing 693
+hot pot with seafood 694
+lamb dishes 695
+dine 696
+amuse bouche 697
+chicken tikka masala 698
+tom yum soup 699
+spice rub 700
+meat patties in steamed buns 701
+dinner special 702
+large whole shrimp 703
+cream cheese 704
+tofu plates 705
+indoor 706
+neapolitan fare 707
+hanger steak au poivre 708
+back waiters 709
+popcorn topping 710
+bill 711
+brioche and lollies 712
+steak dish 713
+vegetarian friendly choices 714
+crowd 715
+sea urchin 716
+managers 717
+bars 718
+ginger lemonade with vodka 719
+main course 720
+cheese fondue 721
+dinner reservations 722
+bruschetta 723
+live entertainment 724
+snapple 725
+cakebread cabernet 726
+potato 727
+steak 728
+in house lady dj 729
+pastrami 730
+spider rolls 731
+crew 732
+singapore mai fun 733
+pistachio ice cream 734
+tuna sandwich 735
+exotic food 736
+noodles with ground beef 737
+plain slice 738
+menu 739
+manager 740
+porcini mushroom pasta special 741
+traditional french decor 742
+pastrami sandwich 743
+nigiri 744
+half price saturday night special 745
+fried dumplings 746
+jukebox 747
+margarite pizza with cold prosciutto and baby arugula on top 748
+lamb meat 749
+spinach ravioli in a light oil and garlic sauce 750
+noodle soup dishes 751
+pam s special fried fish 752
+hummus platter 753
+waiting 754
+dim sum servings 755
+chow fun and chow see 756
+selection of wine 757
+scents 758
+fresh mozzarella 759
+soupy dumplings 760
+knishes 761
+calamari 762
+serves 763
+dulce de leche gelato 764
+chocolate bread pudding 765
+congee 766
+special effects 767
+owner 768
+containers 769
+sushi fix 770
+delivered 771
+guizhou chicken 772
+lotus leaf wrapped rice 773
+yellowfin tuna 774
+roof deck 775
+trays of dim sum 776
+lime 777
+meals 778
+water and wine glasses 779
+nanmu bixin 780
+sushi rolls 781
+soup 782
+lambchops 783
+cheesecake 784
+meal 785
+interior decor 786
+the chicken pot pie 787
+chai tea 788
+side 789
+potato pancakes 790
+dumplings 791
+bistro type vibe 792
+seasoning 793
+sashimi 794
+quail 795
+japanese tapas 796
+fish and chips 797
+pepper powder 798
+kebabs 799
+toast 800
+bar 801
+steaks 802
+lunch menu 803
+measures of liquors 804
+vibe 805
+hanger steak 806
+margarita 807
+italian dishes 808
+general tao chicken 809
+chicken with chili and lemon grass 810
+scallop roll 811
+maitre d 812
+open faced cheese sandwich 813
+decor 814
+tea with tapioca pearls hot 815
+dhal 816
+wine selection 817
+busboy 818
+table by the window 819
+sea salt 820
+chicken 821
+pork 822
+beers on tap 823
+american chinese food 824
+burger 825
+pastas 826
+soups 827
+variety of dishes 828
+hot bagel 829
+assorted sashimi 830
+vegetable juice 831
+spicy tuna roll 832
+eat 833
+attitudes 834
+indian dining experience 835
+night scene 836
+bbq ribs 837
+fondue 838
+house salad 839
+privacy 840
+taran 841
+pepper 842
+moles 843
+veal in carrozza chicken saltimbocca 844
+eating 845
+mediterranean salad 846
+oyster 847
+portion sizes 848
+open kitchen 849
+lamb chops 850
+personal pans 851
+serve 852
+sichuan chef 853
+entrees 854
+tuna tartar appetizer 855
+quality 856
+congee rice porridge 857
+seafood 858
+pot stickers 859
+steak tartare 860
+chips 861
+strawberry daiquiris 862
+pot of boiling water 863
+variety of fish 864
+chocolate 865
+sesame crusted salmon 866
+design 867
+burgers 868
+panang duck 869
+fried dumpling 870
+martinis 871
+creme brulee 872
+hall 873
+asian appetizers 874
+chef app 875
+dishes 876
+wine menu 877
+kitchen 878
+proprietor 879
+lunch specials 880
+bathroom 881
+getting a table 882
+shrimp fritters 883
+dinner 884
+lettuce 885
+angry lobster 886
+yellowtail 887
+homemade lasagna 888
+fried rice 889
+people 890
+svc 891
+tea room 892
+served 893
+horedevous 894
+mushroom ravioli 895
+sea eel 896
+sea bass 897
+octopus salad 898
+plain pizza 899
+root vegetables 900
+pastrami sandwiches 901
+pork buns 902
+hunan chicken 903
+bathrooms 904
+special menu 905
+sandwiches 906
+sides 907
+value 908
+nightcap 909
+thai 910
+sweet lassi 911
+fish 912
+pig feet ginger simmered in black vinegar 913
+chinese food 914
+architecture 915
+spice 916
+lay out 917
+saul 918
+quantity 919
+dinner menu to sit 920
+kalbi 921
+omelet 922
+reservation 923
+samosas 924
+cheeseburgers 925
+mashed potatoes 926
+chocolate sampler 927
+caviar 928
+reservations 929
+beef noodle soup 930
+lamb vindaloo 931
+puff pastry goat cheese 932
+cart attendant 933
+candle light 934
+corridor 935
+food s presentation 936
+dining experiences 937
+chutneys 938
+pad thai chicken 939
+back garden sitting area 940
+pre theater prix fixe 941
+vietnamese classics 942
+ceviche mix special 943
+backs 944
+crackling calamari salad 945
+ala carte 946
+scallops 947
+wild mushroom third generation forlini pizza 948
+goat cheese 949
+bottle 950
+lazy susans 951
+sichuan cooking 952
+course 953
+waiter traffic 954
+thin crusted pizza 955
+ambience 956
+box wine 957
+quality of food 958
+servers 959
+kamasutra 960
+ordering a la carte 961
+tonic 962
+check 963
+chopsticks 964
+bruschettas 965
+turnip cake 966
+toaster 967
+waiting area 968
+bagel with lox spread 969
+indian appetizers 970
+beverage manager 971
+dals 972
+frying 973
+japanese cuisine 974
+seat 975
+argentinian pizza 976
+backyard dining area 977
+glasses of water 978
+crawfish boiled 979
+escargot 980
+steak frites 981
+bread 982
+lunch meetings 983
+french food 984
+neighborhood 985
+hosting staff 986
+round of drinks 987
+pita 988
+menu prices 989
+maine lobster 990
+indian food 991
+feel 992
+peanut sauce 993
+white tuna sashimi 994
+line 995
+aisle 996
+pudding dessert 997
+homemade pasta 998
+chicken tikka marsala 999
+thai ice tea 1000
+portraits 1001
+good 1002
+meatballs 1003
+dinners 1004
+baked ziti with meat sauce 1005
+thai cuisine 1006
+ravioli 1007
+take out pies 1008
+massaman curry 1009
+spaghetti with scallops and shrimp 1010
+pelligrini 1011
+back garden 1012
+baby pizzas 1013
+view 1014
+bombay style chaat 1015
+special 1016
+shuizhu fish 1017
+cold appetizer dishes 1018
+jelly fish 1019
+dining area 1020
+pad penang 1021
+dim sum orders 1022
+mahi mahi on saffron risotto 1023
+pre theatre menu 1024
+lasagnette appetizer 1025
+pasta dishes 1026
+dough 1027
+wines by the glass 1028
+noise level 1029
+price category 1030
+teapot 1031
+pasta dish 1032
+palak paneer 1033
+dress code 1034
+salt 1035
+sushi bar 1036
+chicken with black bean sauce 1037
+food runners 1038
+christmas dinner 1039
+ac 1040
+edamames 1041
+japanese comfort food 1042
+crab dumplings 1043
+sashimi cucumber roll 1044
+walnuts 1045
+halibut special 1046
+fried chicken 1047
+presentation 1048
+cod 1049
+abby s treasure 1050
+slice 1051
+green curry 1052
+crispy chicken 1053
+choice 1054
+hot sauce 1055
+cokes 1056
+dance floor 1057
+tanks 1058
+packed 1059
+three course meal 1060
+sandwich 1061
+meats 1062
+okra bindi 1063
+hollandaise sauce 1064
+wait 1065
+roast chicken 1066
+music 1067
+herbs 1068
+mix of greens 1069
+buffet 1070
+snacking 1071
+vegetable samosa 1072
+owners 1073
+oil 1074
+after dinner drinks 1075
+bartender 1076
+lawns 1077
+seats 1078
+spring rolls 1079
+tapas 1080
+dumpling 1081
+brunch 1082
+mushrooms 1083
+curry sauce 1084
+antipasti 1085
+naan 1086
+glass of wine 1087
+servings 1088
+assortment of fish 1089
+cafe 1090
+italian food 1091
+food options 1092
+plate 1093
+salad with a delicious dressing 1094
+mozzarella 1095
+upstairs 1096
+lobster cobb salad 1097
+jazz 1098
+dinner plates 1099
+rolls 1100
+lunch food 1101
+garlic naan 1102
+capex 1103
+songlet 1104
+captain 1105
+french indian fusion 1106
+southern indian cuisine 1107
+chicken in curry sauce 1108
+thai flavors 1109
+primi 1110
+msg cooking 1111
+corned beef 1112
+truffle oil 1113
+lamb chop 1114
+fluke sashimi 1115
+mushroom consomme 1116
+seafood dishes 1117
+prix fixe meal 1118
+coat check girls 1119
+fresh mozzarella slices 1120
+downstairs lounge 1121
+place 1122
+food spot 1123
+drink refills 1124
+chu chu curry 1125
+waitresses 1126
+pho 1127
+wait time 1128
+waitress 1129
+desserts 1130
+live jazz 1131
+servants 1132
+fat 1133
+waiter 1134
+oysters 1135
+wait service 1136
+take out pizza 1137
+crab cake eggs benedict 1138
+chocolate souffle with raspberry mint sorbet 1139
+wine list 1140
+food quality 1141
+entree range 1142
+dish 1143
+toppings 1144
+fountain drinks 1145
+kinds of beer 1146
+mayo 1147
+indian 1148
+fondue appetizer 1149
+iced tea 1150
+guacamole shrimp appetizer 1151
+spot lights 1152
+garden terrace 1153
+sangria 1154
+man 1155
+sashimi plate 1156
+kamikaze 1157
+qualities 1158
+basic dishes 1159
+bar scene 1160
+casual dinner 1161
+filet mignon 1162
+spot 1163
+rice dishes 1164
+spicy tuna hand rolls 1165
+care 1166
+white chocolate bread pudding with gelato and hot chocolate 1167

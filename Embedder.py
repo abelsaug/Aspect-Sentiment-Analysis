@@ -4,7 +4,9 @@ import nltk
 import pandas
 from gensim.models import Word2Vec
 import spacy
-
+from sklearn.feature_extraction.text import TfidfVectorizer
+from collections import Counter, defaultdict
+import os.path
 
 class MeanEmbeddingVectorizer(object):
     def __init__(self, word2vec):
@@ -30,8 +32,8 @@ class TfidfEmbeddingVectorizer(object):
         else:
             self.dim=0
         
-    def fit(self, X, y):
-        tfidf = TfidfVectorizer(analyzer=lambda x: x)
+    def fit(self, X):
+        tfidf = TfidfVectorizer(analyzer='word')
         tfidf.fit(X)
         # if a word was never seen - it must be at least as infrequent
         # as any of the known words - so the default idf is the max of 
@@ -40,15 +42,15 @@ class TfidfEmbeddingVectorizer(object):
         self.word2weight = defaultdict(
             lambda: max_idf, 
             [(w, tfidf.idf_[i]) for w, i in tfidf.vocabulary_.items()])
-    
+
+        
         return self
     
     def transform(self, X):
         return np.array([
                 np.mean([self.word2vec[w] * self.word2weight[w]
-                         for w in words if w in self.word2vec] or
+                         for w in X if w in self.word2vec] or
                         [np.zeros(self.dim)], axis=0)
-                for words in X
             ])
     
 def pos2vec(pvdf):
@@ -58,7 +60,7 @@ def pos2vec(pvdf):
             word_list = nltk.word_tokenize(row[' text'])
             tagged_list = map(lambda w_p_tuple: w_p_tuple[1], nltk.pos_tag(word_list))
             full_pos_list.append(tagged_list)
-        model = Word2Vec(full_pos_list, size=50, window=2, min_count=1, workers=4)
+        model = Word2Vec(full_pos_list, size=120, window=6, min_count=1, workers=4)
         w2v = dict(zip(model.wv.index2word, model.wv.syn0))
         mev = MeanEmbeddingVectorizer(w2v)
         p2v_dict = dict()
@@ -120,19 +122,15 @@ def sentence2sequence(glove_wordmap, sentence):
     return rows, words
 
 def glove2vec(gvdf, customTrained=False, mean = False):
-    glove_vectors_file = "glove.6B.300d.txt"
+    #TODO: Custom Train
+    glove_vectors_file = "glove.840B.300d.txt"
     glove_wordmap = {}
-    nlp = spacy.load("en")
     encoding="utf-8"
     X = []
     for index, row in gvdf.iterrows():
         X.append(row[' text'].lower())
-    all_words = set(w for words in X for w in words)
+    all_words = set(word for words in X for word in words.split(" "))
     word_list = []
-#     with open(glove_vectors_file, "r", encoding="utf8") as glove:
-#         for line in glove:
-#             name, vector = tuple(line.split(" ", 1))
-#             glove_wordmap[name] = np.fromstring(vector, sep=" ")
     with open(glove_vectors_file, "rb") as infile:
         for line in infile:
             parts = line.split()
@@ -140,49 +138,53 @@ def glove2vec(gvdf, customTrained=False, mean = False):
             if word in all_words:
                 nums=np.array(parts[1:], dtype=np.float32)
                 glove_wordmap[word] = nums
-    mev = MeanEmbeddingVectorizer(glove_wordmap)
-    #temporary
-    return mev
-#     with open(args['output'] + "/glove2vec.txt", 'w', encoding="utf8") as of:
-#         g2v_dict = dict()
-#         for index, row in gvdf.iterrows():
-#             word_list = np.vstack(sentence2sequence(glove_wordmap, row[' text'].lower())[0])
-# #             max_wordlist_length = 85
-# #             vector_size = 50
-# #             word_list = np.stack([fit_to_size(x, (max_wordlist_length, vector_size))
-# #                   for x in word_list])
-#             if mean:
-#                 word_list = mev.transform(word_list)
-#             print(word_list)
-#             g2v_dict[row['example_id']] = " ".join(map(str, word_list.tolist()))
-#         for k, v in g2v_dict.items():
-#             of.write(k + " " + v + "\n")
         
-
-def word2vec(gvdf, customTrained=False):
-    glove_vectors_file = "glove.6B.300d.txt"
-    glove_wordmap = {}
-    nlp = spacy.load("en")
-    word_list = []
-    with open(glove_vectors_file, "r", encoding="utf8") as glove:
-        for line in glove:
-            name, vector = tuple(line.split(" ", 1))
-            glove_wordmap[name] = np.fromstring(vector, sep=" ")
-    mev = MeanEmbeddingVectorizer(glove_wordmap)
+    tev = TfidfEmbeddingVectorizer(glove_wordmap)
     with open(args['output'] + "/glove2vec.txt", 'w', encoding="utf8") as of:
+        g2v_dict = dict()
         for index, row in gvdf.iterrows():
-            word_list.append(np.vstack(sentence2sequence(glove_wordmap, row[' text'].lower())[0]))
-        max_wordlist_length = 85
-        vector_size = 50
-        word_list = np.stack([fit_to_size(x, (max_wordlist_length, vector_size))
-              for x in word_list])
-        if mean:
-            word_list = mev.transform(word_list)
-        g2v_dict[row['example_id']] = " ".join(map(str, word_list.tolist()))
+            word_list = row[' text'].split(" ")
+
+            if mean:
+                tev.fit(word_list)
+                word_list = tev.transform(word_list)[0]
+            g2v_dict[row['example_id']] = " ".join(map(str, word_list.tolist()))
         for k, v in g2v_dict.items():
             of.write(k + " " + v + "\n")
-            
+        
 
+def word2vec(wdf, customTrained=False, mean = False):
+    # Load Google's pre-trained Word2Vec model.
+    if not customTrained:
+        w2v_wordmap = gensim.models.Word2Vec.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)  
+    word_list = []
+    sentences = []
+    if customTrained:
+        if os.path.exists('GoogleNews-vectors-negative300-custom.bin'):
+            w2v_wordmap = Word2Vec.load('GoogleNews-vectors-negative300-custom.bin')
+        else:
+            for index, row in wdf.iterrows():
+                sentences.append(row[' text'].split(" "))
+            w2v_wordmap = Word2Vec(sentences, size=120, window=6, min_count=1, workers=7)
+            # save model
+            w2v_wordmap.save('GoogleNews-vectors-negative300-custom.bin')
+    w2v_wordmap = {w: vec for w, vec in zip(w2v_wordmap.wv.index2word, w2v_wordmap.wv.syn0)}
+    tev = TfidfEmbeddingVectorizer(w2v_wordmap)
+    with open(args['output'] + "/word2vec.txt", 'w', encoding="utf8") as of:
+        w2v_dict = dict()
+        for index, row in wdf.iterrows():
+            word_list = row[' text'].split(" ")
+            if mean:
+                tev.fit(word_list)
+                word_list = tev.transform(word_list)[0]
+            w2v_dict[row['example_id']] = " ".join(map(str, word_list.tolist()))
+        for k, v in w2v_dict.items():
+            of.write(k + " " + v + "\n")
+            
+# def postion2vec(df):
+    
+    
+    
 def fit_to_size(matrix, shape):
     res = np.zeros(shape)
     slices = [slice(0,min(dim,shape[e])) for e, dim in enumerate(matrix.shape)]
