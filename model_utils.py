@@ -11,6 +11,12 @@ def oversample_neutral_class(train_df):
         if classes!=1 and classes!= -1:
             train_df = train_df.append(train_df[index:index+1])
     return train_df
+
+def oversample_negative_class(train_df):
+    for index,classes in enumerate(train_df[' class']):
+        if classes == -1:
+            train_df = train_df.append(train_df[index:index+1])
+    return train_df
     
 def apply_aspdep_weight(train_df, weight):
     train_text = train_df[' text'].values.astype('U')

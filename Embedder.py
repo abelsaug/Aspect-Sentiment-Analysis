@@ -52,7 +52,8 @@ class TfidfEmbeddingVectorizer(object):
                          for w in X if w in self.word2vec] or
                         [np.zeros(self.dim)], axis=0)
             ])
-    
+
+
 def pos2vec(pvdf):
     with open(args['output'] + "/pos2vec.txt", 'w') as of:
         full_pos_list = []
