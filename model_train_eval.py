@@ -29,6 +29,7 @@ def train_MultinomialNB(filePath):
     train_data_1 = model_utils.apply_aspdep_weight(train_df, 0.9)
     text_clf = MultinomialNB(alpha=0.3, fit_prior=True, class_prior=None).fit(train_data_1, train_class) # 1.2, 0.01   Accuracy:  0.7407742366772097 Weights:  1.2
 
+
     joblib.dump(text_clf, 'Multinomial_nb_model.pkl')
 
     """PERFORMANCE EVALUATION"""
@@ -65,6 +66,7 @@ def train_SGD(filePath):
 
     text_clf = linear_model.SGDClassifier(loss='squared_loss', penalty='l2',alpha=1e-3, random_state=607,max_iter=1000000, tol=1e-2).fit(train_data_1, train_class)        #Accuracy:  0.7797260574839455 @ 2.1 weight
     # Accuracy:  0.7428003692958715 Weights:  0.5
+
     joblib.dump(text_clf, 'SGD_model.pkl')
 
     """PERFORMANCE EVALUATION"""
@@ -106,6 +108,7 @@ def train_RF(filePath):
     """PERFORMANCE EVALUATION"""
     accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data_1, train_class, k_split=10)
     print("Accuracy: ", accuracy)
+
     print(clf_report)
 
 
@@ -131,6 +134,7 @@ def train_ET(filePath):
     train_data_1 = model_utils.apply_aspdep_weight(train_df, 0.3)
     text_clf = ExtraTreesClassifier(n_estimators = 10, max_depth=2, random_state=0, n_jobs = -1).fit(train_data_1, train_class)
 
+
     """PERFORMANCE EVALUATION"""
     accuracy, clf_report = model_utils.get_cv_metrics(text_clf, train_data_1, train_class, k_split=10)
     print("Accuracy: ", accuracy)
@@ -148,14 +152,14 @@ def train_StackedGeneralizer(filePath):
     """TRAINING"""
     train_df = pandas.read_csv(filePath, sep='\t')
 #     train_df = model_utils.oversample_neutral_class(train_df)
-    train_class = train_df[' class'].as_matrix()
-        
+    train_class = train_df[' class'].as_matrix()        
     train_data_1 = model_utils.apply_aspdep_weight(train_df, 1.7)
 #     base_models = [MultinomialNB(alpha=0.6, fit_prior=True, class_prior=None), BernoulliNB(alpha=1.2, fit_prior=True, class_prior=None), 
 #                    linear_model.SGDClassifier(loss='squared_loss', penalty='l2', alpha=1e-3, random_state=607,
 #                                               max_iter=1000000, tol=1e-2)]
 
     base_models = [joblib.load('Multinomial_nb_model.pkl'),joblib.load('Bernoulli_nb_model.pkl'), joblib.load('SGD_model.pkl'), joblib.load('RF_model.pkl')]
+
     # define blending model
     blending_model = LogisticRegression(random_state=607)
 
@@ -168,6 +172,8 @@ def train_StackedGeneralizer(filePath):
     print("Accuracy: ", accuracy) #Accuracy:  0.7497418660799471 Weights:  1.7
 # Accuracy:  0.870205361374062 Weights:  2.4
 #     print(clf_report)
+
+
 
 
 
